@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员 - 上海纽约大学机器人俱乐部</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="https://shanghai.nyu.edu" class="logo">
+            <img src="images/NYUSH logo.png" alt="机器人俱乐部标志">
+        </a>
+        <nav>
+            <img src="images/listbutton.png" alt="菜单" class="menu-button">
+            <ul class="hidden">
+                <li><a href="index-cn.html">首页</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="video-container">
+        <video autoplay muted loop playsinline webkit-playsinline>
+            <source src="videos/BG.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+        </video>
+    </div>
+    <div class="content">
+        <h1>管理面板</h1>
+        <div class="admin-modules">
+            <a href="admin-events-cn.html" class="admin-module">
+                <h2>活动</h2>
+            </a>
+            <a href="admin-vex-u-team-cn.html" class="admin-module">
+                <h2>VEXU 团队</h2>
+            </a>
+            <a href="admin-members-cn.html" class="admin-module">
+                <h2>成员</h2>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 上海纽约大学机器人俱乐部</p>
+    </footer>
+    <script>
+        // 点击按钮切换菜单功能
+        document.querySelector('.menu-button').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
