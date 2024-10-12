@@ -1,0 +1,989 @@
+/* 其他样式保持不变 */
+
+/* Event recap content */
+.eventrecap {
+    font-family: Arial, sans-serif;
+    max-width: 800px; /* Set the maximum width for the centered content */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px;
+    text-align: left; /* Ensure the text is left-aligned */
+    background-color: #ffffff; /* Background for the content area */
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+/* H1 inside eventrecap */
+.eventrecap h1 {
+    font-size: 36px; /* Larger font size for the main title */
+    color: #333; /* Dark purple color for the main heading */
+    text-align: left; /* Center the main title */
+    margin-bottom: 30px; /* Space below the title */
+}
+
+/* H2 inside eventrecap */
+.eventrecap h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Paragraphs inside eventrecap */
+.eventrecap p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Images inside eventrecap */
+.eventrecap img {
+    display: block;
+    margin: 20px auto; /* Center the image */
+    max-width: 100%; /* Ensure the image fits within the content area */
+    height: auto;
+    border-radius: 10px; /* Optional: adds rounded corners */
+}
+
+
+
+
+
+/* Image styling */
+.image-with-shadow {
+    width: 100%; /* Image takes full width of the container */
+    height: auto;
+    display: block;
+    position: relative; /* Ensure the image is below the shadow */
+    z-index: 1; /* Set the image below the pseudo-element */
+}
+/* Pseudo-element to create a shadow above the image */
+.background-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Place it above the image */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)); /* Shadow gradient */
+    pointer-events: none; /* Allow clicks to pass through the shadow layer */
+}
+
+/* Content styling */
+.background-container-content {
+    position: relative; /* Changed from absolute to relative */
+    margin: 10px 30px; /* Use margin to create space instead of fixed positioning */
+    color: white; 
+    display: flex;
+    flex-direction: column; 
+    text-align: left;
+    bottom: auto; /* Remove the fixed bottom positioning */
+    left: auto; /* Remove fixed left positioning */
+    z-index: 3; /* Ensure the content is above both the image and shadow */
+}
+/* For medium screens (tablets and small desktops) */
+@media (max-width: 1024px) {
+    .background-container-content {
+        margin: 5px 15px; /* Adjust the margin for smaller screens */
+        font-size: 1.2rem; /* Scale down font size */
+    }
+    .background-container {
+        height: 50vh; /* Moderate height for medium-sized screens */
+    }
+}
+
+/* For small screens (phones) */
+@media (max-width: 768px) {
+    .background-container-content {
+        margin: 5px 10px; /* Further reduce margin to fit smaller screens */
+        font-size: 1rem; /* Adjust font size for readability */
+    }
+    .background-container {
+        height: 40vh; /* Reduce the height for smaller screens */
+    }
+
+}
+
+/* For very small screens (small phones) */
+@media (max-width: 480px) {
+    .background-container-content {
+        margin: 2px 5px; /* Minimal margin for very small screens */
+        font-size: 0.9rem; /* Reduce font size for better fit */
+        text-align: center; /* Center-align text for better display on narrow screens */
+    }
+    .background-container {
+        height: 30vh; /* Further reduce the height for very small screens */
+    }
+}
+/* Background image container */
+.background-container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* Content inside the background, positioned at the bottom left */
+.background-container-content {
+    position: absolute;
+    bottom: 1px; /* Space from the bottom */
+    left: 30px;   /* Space from the left */
+    color: white; 
+    z-index: 1; 
+    display: flex;
+    flex-direction: column; 
+    text-align: left; 
+}
+
+/* Styling for the H1 title */
+.background-container-content h1 {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 5vw; 
+    margin: 0;
+    padding: 0; /* Removed unnecessary padding value */
+}
+
+/* Styling for the H2 subtitle */
+.background-container-content h2 {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 20px; 
+    margin-top: 1px; /* Adds space between h1 and h2 */
+    padding: 0; /* Removed unnecessary padding value */
+}
+
+/* Image gallery container */
+.image-gallery {
+    display: flex;
+    justify-content: space-around; /* Distribute space between the images */
+    margin-top: 10px; /* Add space between the title and the images */
+    padding: 10px; /* Optional padding around the gallery */
+    margin-bottom: 30px;
+
+}
+
+/* Styling for the images in the gallery */
+.image-gallery img {
+    width: 20%; /* Ensure each image takes 30% of the width (3 columns) */
+    height: auto; /* Maintain the aspect ratio */   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .image-gallery {
+        flex-direction: column; /* Stack images vertically on smaller screens */
+    }
+    
+    .image-gallery img {
+        width: 100%; /* Make each image take full width on small screens */
+        margin-bottom: 20px; /* Add space between stacked images */
+    }
+}
+
+/* Clickable columns */
+.clickable-columns {
+    display: flex;
+    justify-content: space-between; /* Equal space between columns */
+    margin-top: 30px;
+    padding: 20px;
+}
+
+/* Each column takes up 30% of the container */
+.column {
+    text-decoration: none;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-basis: 30%; /* Each column takes up approximately 30% of the container width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column img {
+    width: 100%; /* Make the image fill the width of the column */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px;
+}
+
+/* Text inside the column */
+.column-text {
+    text-align: left;
+    margin-top: 15px;
+    color: #333;
+}
+
+.column-text h3 {
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.column-text h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0 0;
+}
+
+/* Styling for the arrow */
+.arrow {
+    align-self: flex-end;
+    font-size: 20px;
+    margin-top: auto; /* Push the arrow to the bottom */
+    color: #333;
+}
+
+/* Hover effect */
+.column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive layout: stack columns vertically on smaller screens */
+@media (max-width: 768px) {
+    .clickable-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 90%; /* Make columns full width on small screens */
+        margin-bottom: 20px;
+    }
+}
+
+
+
+.image-with-shadow {
+    box-shadow: 
+        inset 0px -40px 20px rgba(0, 0, 0, 0.9), /* Inward top shadow */
+        inset 0px 40px 20px rgba(0, 0, 0, 0.9);  /* Inward bottom shadow */
+        
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden; /* 防止水平滚动条 */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: absolute; /* 绝对定位 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 使 logo 和导航菜单在 header 内两端对齐 */
+    z-index: 10; /* 确保 header 在视频上层 */
+    padding: 0.5rem 1rem;
+    box-sizing: border-box; /* 确保内边距不会增加额外的空间 */
+
+}
+
+
+
+.logo img {
+    max-height: 62px; /* 保持 logo 的高度 */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.1);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    position: relative; /* 确保子元素的绝对定位基于nav */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem; /* 导航链接之间的间距 */
+    flex-direction: row; /* 水平排列 */
+    position: relative;
+    background: none; /* 去掉背景 */
+    text-align: center;
+    box-sizing: border-box;
+    
+}
+
+nav ul li {
+    margin: 0;
+    padding: 1rem; /* 默认间距 */
+}
+
+header nav ul li a,
+.language-switch {
+    color: #fff; /* 白色字体 */
+    text-decoration: none;
+    font-size: 1rem; /* 初始字体大小 */
+    transition: color 0.3s ease, font-size 0.3s ease;
+    text-align: center; /* 居中对齐文本 */
+    line-height: 1.5; /* 确保垂直对齐 */
+    display: flex;
+    align-items: center; /* 垂直居中对齐 */
+    height: 100%;
+}
+
+nav ul li a:hover {
+    color: #f0c14b;
+}
+
+.menu-button {
+    display: none; /* 默认隐藏 */
+    height: 50px; /* 与 logo 高度一致 */
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative; /* 保持相对定位 */
+}
+
+.menu-button:hover {
+    transform: scale(1.1);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 62vh; /* 保持视频高度为62vh */
+    overflow: hidden;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* 确保视频居中 */
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.video-container video {
+    width: 130%; /* 增加视频宽度 */
+    height: 100%;
+    object-fit: cover; /* 确保视频不被裁剪并填满容器 */
+    object-position: 40% center; /* 略微向左偏移 */
+    pointer-events: none; /* 禁用视频播放框 */
+}
+
+.content {
+    padding: 2rem;
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    margin-top: 0; /* 确保内容紧接在视频下方开始 */
+    flex: 1;
+}
+
+.login-content {
+    padding-top: 0;
+    margin-top: -5vh; /* 将内容向上移动 */
+}
+
+.content h1, .content h2, .content p, .content ul {
+    margin-bottom: 2rem; /* 扩大各部分之间的间隔 */
+}
+
+.no-bullets {
+    list-style: none; /* 去掉有序号标点 */
+    padding: 0;
+}
+
+.event-module {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent; /* 边框不可视 */
+}
+
+.event-module img {
+    height: 100px;
+    width: auto;
+    margin-right: 1rem;
+}
+
+.event-module .event-text {
+    text-align: left;
+}
+
+event-module h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+event-module p {
+    margin: 0.5rem 0 0 0;
+}
+
+/* Past Events 样式修改 */
+.past-event-module {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9; /* 保持与 Upcoming Events 一致的背景色 */
+    padding: 2rem; /* 两倍的内边距 */
+    margin-bottom: 2rem; /* 增加模块间距 */
+    border: 1px solid transparent; /* 保持透明边框 */
+    width: 100%; /* 让模块宽度占满 */
+    height: auto; /* 模块自动适应内容 */
+    box-sizing: border-box;
+}
+
+/* 图片占据模块一半宽度 */
+.past-event-module img {
+    width: 50%; /* 图片占据模块宽度的一半 */
+    height: auto; /* 保持图片的纵横比 */
+    margin-right: 2rem; /* 图片与文本之间的距离 */
+}
+
+.past-event-module a img {
+    transition: transform 0.3s ease; /* 平滑过渡效果 */
+}
+
+.past-event-module a:hover img {
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+
+.past-event-module a:active img {
+    transform: scale(1.2); /* 点击时进一步放大 */
+}
+
+/* 文本部分居中 */
+.past-event-module .event-text {
+    flex: 1; /* 让文本部分占据剩余空间 */
+    text-align: center; /* 文本水平居中 */
+    font-size: 1.2rem; /* 放大文本 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直居中对齐文本 */
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    position: relative; /* 添加 position 属性 */
+}
+
+footer .social-media {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+footer .social-media a img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+footer .social-media a:hover img {
+    transform: scale(1.1);
+}
+
+.admin-login {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.admin-login:hover {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin: 0.5rem 0;
+}
+
+form input, form textarea {
+    width: 80%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 0.5rem 2rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+form button:hover {
+    transform: scale(1.1);
+    background-color: #555;
+}
+
+form button:active {
+    transform: scale(1);
+}
+
+.members-wall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.member {
+    width: calc(20% - 1rem); /* 每行显示5个成员 */
+    text-align: center;
+    background-color: #fff; /* 设置模块背景为白色 */
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.member img {
+    width: calc(100vw * 0.15);
+    height: calc(100vw * 0.2); 
+    object-fit: cover; /* 确保图片填充整个容器 */
+}
+
+/* Faculty Mentor 特殊样式 */
+.faculty-mentor {
+    display: flex;
+    flex-direction: column; /* 将图片与文本垂直排列 */
+    align-items: center; /* 居中对齐 */
+    text-align: center;
+    max-width: 100%; /* 不限制宽度 */
+    margin: 0 auto; /* 居中布局 */
+}
+
+.faculty-mentor img {
+    width: 250px; /* 增大图片宽度 */
+    height: auto; /* 保持图片比例 */
+    margin-bottom: 1rem; /* 图片与文本之间的间距 */
+}
+
+.faculty-mentor h3 {
+    white-space: nowrap; /* 名字强制在一行内显示 */
+    overflow: visible; /* 允许超出部分显示 */
+    margin: 0.5rem 0;
+}
+
+.faculty-mentor p {
+    display: block;
+    white-space: nowrap; /* 确保文本不换行 */
+    overflow: visible; /* 不隐藏内容 */
+    margin: 0.25rem auto;
+    max-width: none; /* 允许文本超出容器宽度 */
+    line-height: 1.2; /* 设置适合的行高 */
+    text-align: center; /* 文本居中对齐 */
+}
+
+
+
+/* 为 Faculty Mentor 的头像添加点击放大效果 */
+.faculty-mentor a img {
+    transition: transform 0.3s ease; /* 平滑过渡效果 */
+}
+
+.faculty-mentor a:hover img {
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+
+.faculty-mentor a:active img {
+    transform: scale(1.2); /* 点击时进一步放大 */
+}
+
+.member h3 {
+    margin: 0.5rem 0 0 0;
+}
+
+.member p {
+    margin: 0.25rem 0 0 0;
+}
+
+.team-button {
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    width: 90%;
+    height: 100px;
+    margin: 2rem auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.team-button img {
+    height: 80px;
+    width: auto;
+    margin: 0 1rem;
+}
+
+.team-button .team-text {
+    color: #fff;
+    font-size: 1.2rem;
+    flex: 1;
+    text-align: center;
+}
+
+.team-button:hover {
+    transform: scale(1.1);
+}
+
+/* 登录页面样式 */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    margin-top: -5vh; /* 将内容向上移动 */
+}
+
+.login-container h2 {
+    margin-bottom: 2rem;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.login-container form label {
+    margin-bottom: 0.5rem;
+}
+
+.login-container form input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-container form button {
+    padding: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-container form button:hover {
+    transform: scale(1.05);
+    background-color: #555;
+}
+
+.login-container form button:active {
+    transform: scale(1);
+}
+
+/* 管理页面样式 */
+.manage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.manage-container h2 {
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.manage-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+}
+
+.manage-container form label {
+    margin-bottom: 0.5rem;
+    text-align: left;
+    color: #333;
+}
+
+.manage-container form input,
+.manage-container form textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.manage-container form button {
+    padding: 0.5rem 2rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.manage-container form button:hover {
+    transform: scale(1.1);
+    background-color: #555;
+}
+
+.manage-container form button:active {
+    transform: scale(1);
+}
+
+.manage-container .event-list {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2rem;
+}
+
+.manage-container .event-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.manage-container .event-item img {
+    height: 50px;
+    width: auto;
+    margin-right: 1rem;
+}
+
+.manage-container .event-item .event-text {
+    flex: 1;
+    text-align: left;
+}
+
+.manage-container .event-item button {
+    padding: 0.5rem;
+    background-color: #ff3333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.manage-container .event-item button:hover {
+    transform: scale(1.1);
+    background-color: #cc0000;
+}
+
+.manage-container .event-item button:active {
+    transform: scale(1);
+}
+
+/* 成员编辑和删除按钮样式 */
+.manage-container .member-item button {
+    padding: 0.5rem;
+    margin: 0 0.25rem; /* 按钮之间的间隔 */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.manage-container .member-item button.edit-button {
+    background-color: #4CAF50; /* 编辑按钮颜色 */
+}
+
+.manage-container .member-item button.edit-button:hover {
+    background-color: #45a049;
+}
+
+.manage-container .member-item button.delete-button {
+    background-color: #f44336; /* 删除按钮颜色 */
+}
+
+.manage-container .member-item button.delete-button:hover {
+    background-color: #da190b;
+}
+
+/* 扩展导航样式 */
+nav.expanded ul {
+    gap: 0.15rem; /* 扩展时更小的间距 */
+}
+
+nav.expanded ul li {
+    padding: 0.15rem; /* 确保在扩展时保持相同的间距 */
+}
+
+nav.expanded ul li a {
+    font-size: 1rem !important; /* 扩展时字体大小 */
+}
+
+/* Involvement Fair */
+.z-involve{
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.z-involve-img{
+    display: block;
+}
+
+.z-involve-div{
+    display: block;
+}
+
+/* 媒体查询 */
+@media (max-width: 768px) {
+    .video-container {
+        height: 40vh; /* 在移动设备上将视频高度设置为40%视口高度 */
+    }
+    .content {
+        margin-top: 0; /* 确保内容紧接在视频下方开始 */
+    }
+    nav {
+        position: relative; /* 保持相对定位 */
+    }
+    nav ul {
+        flex-direction: column; /* 垂直排列 */
+        position: absolute;
+        top: 50px; /* 菜单在按钮正下方 */
+        left: 50%; /* 居中对齐 */
+        transform: translateX(-50%); /* 确保居中 */
+        width: max-content; /* 根据内容调整宽度 */
+        background: none; /* 去掉背景 */
+        text-align: center;
+        transition: max-height 0.3s ease;
+        max-height: 0; /* 初始高度为0 */
+        overflow: hidden; /* 隐藏内容 */
+    }
+    nav ul li {
+        padding: 1rem 0; /* 上下间距 */
+        margin-bottom: 0.5rem; /* 选项之间的空隙 */
+        text-align: center; /* 居中对齐文本 */
+        white-space: normal; /* 允许文本换行 */
+    }
+    nav ul li a,
+    nav ul .language-switch {
+        font-size: 1.5rem !important; /* 墛大字体 */
+        overflow: visible; /* 显示所有内容 */
+        display: block; /* 确保链接块级元素 */
+        padding-left: 1rem; /* 增加内边距确保足够空间 */
+        padding-right: 1rem; /* 墛加内边距确保足够空间 */
+        line-height: normal; /* 确保垂直对齐 */
+    }
+    .menu-button {
+        display: block; /* 在移动设备上显示 */
+        position: relative; /* 保持相对定位 */
+        margin-left: auto;
+    }
+    nav ul.hidden {
+        max-height: 0; /* 隐藏状态 */
+    }
+    nav ul:not(.hidden) {
+        max-height: 400px; /* 显示状态，最大高度可调整 */
+    }
+    .member {
+        width: 100%; 
+    }
+    .member img{
+        width: calc(100vw * 0.4);
+        height: calc(100vw * 0.5);
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        position: relative; /* 保持相对定位 */
+    }
+    nav ul {
+        flex-direction: column; /* 垂直排列 */
+        position: absolute;
+        top: 50px; /* 菜单在按钮正下方 */
+        left: 50%; /* 居中对齐 */
+        transform: translateX(-50%); /* 确保居中 */
+        width: max-content; /* 根据内容调整宽度 */
+        background: none; /* 去掉背景 */
+        text-align: center;
+        transition: max-height 0.3s ease;
+        max-height: 0; /* 初始高度为0 */
+        overflow: hidden; /* 隐藏内容 */
+    }
+    nav ul li {
+        padding: 1rem 0; /* 上下间距 */
+        margin-bottom: 0.5rem; /* 选项之间的空隙 */
+        text-align: center; /* 居中对齐文本 */
+        white-space: normal; /* 允许文本换行 */
+    }
+    nav ul li a,
+    nav ul .language-switch {
+        font-size: 1.5rem !important; /* 墛大字体 */
+        overflow: visible; /* 显示所有内容 */
+        display: block; /* 确保链接块级元素 */
+        padding-left: 1rem; /* 墛加内边距确保足够空间 */
+        padding-right: 1rem; /* 墛加内边距确保足够空间 */
+        line-height: normal; /* 确保垂直对齐 */
+    }
+    .menu-button {
+        display: block; /* 在移动设备上显示 */
+        position: relative; /* 保持相对定位 */
+        margin-left: auto;
+    }
+    nav ul.hidden {
+        max-height: 0; /* 隐藏状态 */
+    }
+    nav ul:not(.hidden) {
+        max-height: 400px; /* 显示状态，最大高度可调整 */
+    }
+    .member {
+        width: 50%; /* 在小屏设备上每行显示2个成员 */
+    }
+}
