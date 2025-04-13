@@ -48,7 +48,6 @@
 
     <h2>Awards</h2>
 
-    <!-- Second Prize -->
     <div class="event-module award-module">
       <img src="images/2024_VEX_Asia_Open_Signaure_Event/DSC07467.JPG" alt="VEX Asia Open Second Prize">
       <div class="event-text">
@@ -56,13 +55,10 @@
         <p>
           From December 29th to January 1st, the NYU Shanghai Robotics Club earned an impressive second prize at the VEX Asia Open Signature Event.
           The competition welcomed over 500 elite teams from China, Macao, Hong Kong, the United States, Singapore, and the UAE.
-          Both NYU Shanghai teams advanced through the group stages, demonstrating exceptional skill and perseverance.
-          Their dedication and teamwork set a powerful tone for future challenges.
         </p>
       </div>
     </div>
 
-    <!-- Promising Award -->
     <div class="event-module award-module">
       <img src="images/2024_VEX_Elite_Invitational _Competition/DSC06769.JPG" alt="Promising Award – SJTU VEX Elite Invitational">
       <div class="event-text">
@@ -70,8 +66,6 @@
         <p>
           On December 22, 2024, the NYU Shanghai Robotics Club received the Promising Award at the VEX Elite Invitational Competition hosted by Shanghai Jiao Tong University.
           The event gathered 29 teams from 17 top universities including SJTU, Xi’an Jiaotong University, Tongji University, and HIT Shenzhen.
-          The teams showcased their creativity and technical skill throughout the competition.
-          This award highlights the club’s commitment to innovation and growth in competitive robotics.
         </p>
       </div>
     </div>
@@ -84,18 +78,15 @@
       <div class="event-text">
         <h3>8th China University Intelligent Robot Innovation Competition</h3>
         <p>
-          Established in 2017, this national-level competition is jointly hosted by the China Association of Higher Education, the Ministry of Education’s Engineering Graphics Curriculum Committee, and the China University Intelligent Robot Innovation Competition Committee.
-          It is co-organized by Zhejiang University and supported by the People’s Government of Yuyao, Zhejiang.
+          Established in 2017, this national-level competition is hosted by the China Association of Higher Education and co-organized by Zhejiang University and the People’s Government of Yuyao.
         </p>
         <p>
-          Held annually, the event promotes innovation and engineering skills among university students through a talent development chain integrating problem discovery, solution design, technical implementation, and project incubation.
-          In 2020, it was listed among the top national university competitions in China.
+          The event fosters innovation through a talent development chain integrating problem discovery, solution design, technical implementation, and incubation.
         </p>
         <p>
           <strong>Special Event 3: VEX U Intelligent Robot Competition</strong><br>
-          As part of the globally renowned VEX World Championship, this year’s VEX U challenge is titled <em>“High Stakes.”</em>
-          Each team controls two robots on a 3.7m x 3.7m field, competing through a 30-second autonomous period and a 90-second driver-controlled period.
-          Points are earned by placing rings on posts, moving mobile goals, and climbing during the endgame.<br><br>
+          This year's theme “High Stakes” features two robots per team in a 3.7m x 3.7m arena with autonomous and driver-controlled periods.
+          Teams score by placing rings, moving mobile goals, and climbing during the endgame.<br><br>
           Learn more via the <a href="https://www.vexforum.cn/t/topic/14581?" target="_blank">official Chinese VEX forum</a>.
         </p>
       </div>
@@ -104,14 +95,23 @@
     <br><br>
 
     <h2>Past Events</h2>
+
+    <div class="event-module award-module">
+      <img src="images/Group Photo.jpg" alt="Lenovo Future Center Visit">
+      <div class="event-text">
+        <h3>Field Trip: Robotics Club | Lenovo Future Center</h3>
+        <p>
+          On November 15, 2024, club members visited Lenovo’s Future Center in Shanghai to explore innovations in AI, robotics, and smart manufacturing.
+        </p>
+      </div>
+    </div>
+
     <a href="past_event_involvementfair.html" class="event-module award-module" style="text-decoration: none; color: inherit;">
       <img src="images/Involvement Fair/Involvement Fair 1.JPG" alt="2024 Fall Involvement Fair">
       <div class="event-text">
         <h3>2024 Fall Involvement Fair</h3>
         <p>
-          On September 12, 2024, the Robotics Club participated in the Fall Involvement Fair held at NYU Shanghai’s Qiantan campus.
-          Club members showcased past projects, upcoming events, and the vision of the club to dozens of interested students and faculty.
-          The fair served as a strong recruiting opportunity, welcoming a new wave of robotics enthusiasts into our community.
+          On September 12, 2024, the Robotics Club showcased its vision and past projects at NYU Shanghai’s Qiantan campus, attracting a new wave of robotics enthusiasts.
         </p>
       </div>
     </a>
@@ -119,12 +119,12 @@
     <br><br>
 
     <h2>Join Us</h2>
-    <p>Interested in joining the NYU Shanghai Robotics Club? Learn more about how to join and get involved in our exciting projects and competitions.</p>
+    <p>Interested in joining the NYU Shanghai Robotics Club? Get involved in exciting projects and competitions and shape the future of robotics with us!</p>
 
     <br>
 
     <h2>Contact Us</h2>
-    <p>If you have any questions or would like to learn more, please contact us through our social media channels.</p>
+    <p>If you have any questions or would like to learn more, please reach out through our social media platforms.</p>
   </div>
 
   <footer>
@@ -142,36 +142,5 @@
     <p>&copy; 2024 NYU Shanghai Robotics Club</p>
     <a href="login-en.html" class="admin-login">Admin Login</a>
   </footer>
-
-  <script>
-    function updateMenuStyles() {
-      const nav = document.querySelector('nav');
-      const navUl = document.querySelector('nav ul');
-      const menuButton = document.querySelector('.menu-button');
-
-      if (window.innerWidth > 768) {
-        navUl.classList.remove('hidden');
-        document.querySelectorAll('nav ul li a').forEach(link => {
-          link.style.fontSize = '1rem';
-        });
-        nav.classList.remove('expanded');
-      } else {
-        if (!nav.classList.contains('expanded')) {
-          navUl.classList.add('hidden');
-        }
-        document.querySelectorAll('nav ul li a').forEach(link => {
-          link.style.fontSize = '0.8rem';
-        });
-      }
-    }
-
-    window.addEventListener('resize', updateMenuStyles);
-    updateMenuStyles();
-
-    document.querySelector('.menu-button').addEventListener('click', function () {
-      document.querySelector('nav').classList.toggle('expanded');
-      document.querySelector('nav ul').classList.toggle('hidden');
-    });
-  </script>
 </body>
 </html>
