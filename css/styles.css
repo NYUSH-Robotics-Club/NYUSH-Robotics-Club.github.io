@@ -1031,3 +1031,20 @@ nav.expanded ul li a {
         text-align: center;
     }
 }
+.award-module {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+  
+  .award-module:hover {
+    transform: scale(1.01);
+  }
+
+  .award-module .event-text h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+  
