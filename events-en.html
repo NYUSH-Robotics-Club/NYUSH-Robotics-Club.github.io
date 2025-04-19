@@ -32,6 +32,7 @@
   </div>
 
   <div class="content">
+
     <h1>Upcoming Event</h1>
     <div class="event-module award-module">
       <img src="images/hmJ2dyvQ_1742195030203.png" alt="8th China University Intelligent Robot Innovation Competition">
@@ -50,12 +51,9 @@
         </p>
       </div>
     </div>
-  </div>
 
-  <div class="content">
-    <h1>Past Events</h1>
+    <h1>Awards</h1>
 
-    <!-- Second Prize – Jan 2025 -->
     <div class="event-module award-module">
       <img src="images/2024_VEX_Asia_Open_Signaure_Event/DSC07467.JPG" alt="Second Prize – VEX Asia Open Signature Event">
       <div class="event-text">
@@ -68,7 +66,6 @@
       </div>
     </div>
 
-    <!-- Promising Award – Dec 2024 -->
     <div class="event-module award-module">
       <img src="images/2024_VEX_Elite_Invitational _Competition/DSC06769.JPG" alt="Promising Award – SJTU VEX Elite Invitational">
       <div class="event-text">
@@ -81,9 +78,26 @@
       </div>
     </div>
 
-    <!-- Field Trip – Lenovo – Nov 15, 2024 -->
+    <h1>Past Events</h1>
+
     <div class="event-module award-module">
-      <img src="images/Group Photo.jpg" alt="Lenovo Future Center Field Trip">
+      <img src="images/20250418, Chen Feng, cover (1).png" alt="Embodied Spatial Intelligence Talk">
+      <div class="event-text">
+        <h3>Embodied Spatial Intelligence: Bridging Perception, Reasoning, and Action</h3>
+        <p>
+          This talk introduces how machines learn to see, understand, and interact with the world in ways similar to humans.
+          It explores embodied spatial intelligence, where agents build robust environmental representations to complete navigation and manipulation tasks.
+          Topics included spatial mapping, unknown environment exploration, understanding human intention, and robot learning from human activity videos.
+        </p>
+        <p>
+          <strong>Speaker:</strong> Prof. Chen Feng, Director of AI4CE Lab, NYU. NSF CAREER Awardee.<br>
+          More at <a href="https://ai4ce.github.io" target="_blank">ai4ce.github.io</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="event-module award-module">
+      <img src="images/Group Photo.jpg" alt="Lenovo Visit">
       <div class="event-text">
         <h3>Field Trip: Robotics Club | Lenovo Future Center</h3>
         <p>
@@ -94,7 +108,6 @@
       </div>
     </div>
 
-    <!-- Involvement Fair – Sep 12, 2024 -->
     <a href="past_event_involvementfair.html" class="event-module award-module" style="text-decoration: none; color: inherit;">
       <img src="images/Involvement Fair/Involvement Fair 1.JPG" alt="2024 Fall Involvement Fair">
       <div class="event-text">
@@ -110,48 +123,12 @@
 
   <footer>
     <div class="social-media">
-      <a href="https://www.linkedin.com/company/robotics-club-at-nyu-shanghai">
-        <img src="images/Linkedin.png" alt="LinkedIn">
-      </a>
-      <a href="https://www.instagram.com/nyush_robotics_club/">
-        <img src="images/Instagram.jpg" alt="Instagram">
-      </a>
-      <a href="wechat-code.html">
-        <img src="images/WeChat.PNG" alt="WeChat">
-      </a>
+      <a href="https://www.linkedin.com/company/robotics-club-at-nyu-shanghai"><img src="images/Linkedin.png" alt="LinkedIn"></a>
+      <a href="https://www.instagram.com/nyush_robotics_club/"><img src="images/Instagram.jpg" alt="Instagram"></a>
+      <a href="wechat-code.html"><img src="images/WeChat.PNG" alt="WeChat"></a>
     </div>
     <p>&copy; 2024 NYU Shanghai Robotics Club</p>
     <a href="login-en.html" class="admin-login">Admin Login</a>
   </footer>
-
-  <script>
-    function updateMenuStyles() {
-      const nav = document.querySelector('nav');
-      const navUl = document.querySelector('nav ul');
-      const menuButton = document.querySelector('.menu-button');
-      if (window.innerWidth > 768) {
-        navUl.classList.remove('hidden');
-        document.querySelectorAll('nav ul li a').forEach(link => {
-          link.style.fontSize = '1rem';
-        });
-        nav.classList.remove('expanded');
-      } else {
-        if (!nav.classList.contains('expanded')) {
-          navUl.classList.add('hidden');
-        }
-        document.querySelectorAll('nav ul li a').forEach(link => {
-          link.style.fontSize = '0.8rem';
-        });
-      }
-    }
-
-    window.addEventListener('resize', updateMenuStyles);
-    updateMenuStyles();
-
-    document.querySelector('.menu-button').addEventListener('click', function () {
-      document.querySelector('nav').classList.toggle('expanded');
-      document.querySelector('nav ul').classList.toggle('hidden');
-    });
-  </script>
 </body>
 </html>
