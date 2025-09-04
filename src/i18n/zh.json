@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "主页",
+    "about": "关于我们",
+    "members": "成员",
+    "events": "活动",
+    "contact": "联系我们"
+  },
+  "footer": {
+    "wechat": "微信"
+  },
+  "home": {
+    "title": "欢迎来到纽约大学上海机器人俱乐部",
+    "intro": "我们致力于通过教育、比赛和实践项目来激发大家对机器人技术的兴趣。"
+  },
+  "about": {
+    "title": "关于我们",
+    "content": "俱乐部的相关信息。"
+  },
+  "members": {
+    "title": "成员",
+    "content": "认识我们的团队。"
+  },
+  "events": {
+    "title": "活动",
+    "content": "即将举行的活动。"
+  },
+  "contact": {
+    "title": "联系我们",
+    "content": "欢迎与我们联系。"
+  },
+  "robomaster": {
+    "title": "Robomaster 队"
+  },
+  "vexu": {
+    "title": "VEX U 队"
+  },
+  "wechat": {
+    "title": "微信二维码"
+  }
+}

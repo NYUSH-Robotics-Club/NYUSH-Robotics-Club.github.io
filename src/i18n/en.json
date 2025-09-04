@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "members": "Members",
+    "events": "Events",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "wechat": "WeChat"
+  },
+  "home": {
+    "title": "Welcome to the NYU Shanghai Robotics Club",
+    "intro": "We are dedicated to promoting interest in robotics through education, competitions, and hands-on projects."
+  },
+  "about": {
+    "title": "About Us",
+    "content": "Information about the club."
+  },
+  "members": {
+    "title": "Members",
+    "content": "Meet our team."
+  },
+  "events": {
+    "title": "Events",
+    "content": "Upcoming events."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "content": "Reach out to us."
+  },
+  "robomaster": {
+    "title": "Robomaster Team"
+  },
+  "vexu": {
+    "title": "VEX U Team"
+  },
+  "wechat": {
+    "title": "WeChat Code"
+  }
+}
