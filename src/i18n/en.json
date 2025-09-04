@@ -11,7 +11,13 @@
   },
   "home": {
     "title": "Welcome to the NYU Shanghai Robotics Club",
-    "intro": "We are dedicated to promoting interest in robotics through education, competitions, and hands-on projects."
+    "intro": "We are dedicated to promoting interest in robotics through education, competitions, and hands-on projects.",
+    "who": "Who We Are",
+    "awards": "Awards",
+    "upcoming": "Upcoming Events",
+    "past": "Past Events",
+    "join": "Join Us",
+    "contact": "Contact Us"
   },
   "about": {
     "title": "About Us",

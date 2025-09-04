@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import RobomasterTeam from './pages/RobomasterTeam';
 import VexUTeam from './pages/VexUTeam';
 import WeChatCode from './pages/WeChatCode';
+import PastEventInvolvementFair from './pages/PastEventInvolvementFair';
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
           <Route path="/robomaster-team" element={<RobomasterTeam />} />
           <Route path="/vex-u-team" element={<VexUTeam />} />
           <Route path="/wechat-code" element={<WeChatCode />} />
+          <Route
+            path="/past-event-involvementfair"
+            element={<PastEventInvolvementFair />}
+          />
         </Routes>
       </main>
       <Footer />
