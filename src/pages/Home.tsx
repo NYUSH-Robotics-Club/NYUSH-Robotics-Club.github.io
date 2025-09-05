@@ -27,12 +27,9 @@ function Home() {
           <p>{t('home.introContact')}</p>
         </section>
 
-        <br />
-        <br />
-
         <h2>{t('home.awards')}</h2>
 
-        <div className="event-module award-module">
+        <div className="event-module">
           <img
             src="/images/2024_VEX_Asia_Open_Signaure_Event/DSC07467.JPG"
             alt="VEX Asia Open Second Prize"
@@ -46,7 +43,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="event-module award-module">
+        <div className="event-module">
           <img
             src="/images/2024_VEX_Elite_Invitational _Competition/DSC06769.JPG"
             alt="Promising Award – SJTU VEX Elite Invitational"
@@ -60,11 +57,8 @@ function Home() {
           </div>
         </div>
 
-        <br />
-        <br />
-
         <h2>{t('home.upcoming')}</h2>
-        <div className="event-module award-module">
+        <div className="event-module">
           <img
             src="/images/hmJ2dyvQ_1742195030203.png"
             alt="8th China University Intelligent Robot Innovation Competition"
@@ -93,12 +87,9 @@ function Home() {
           </div>
         </div>
 
-        <br />
-        <br />
-
         <h2>{t('home.past')}</h2>
 
-        <div className="event-module award-module">
+        <div className="event-module">
           <img
             src="/images/20250418, Chen Feng, cover (1).png"
             alt="Embodied Spatial Intelligence Talk"
@@ -121,7 +112,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="event-module award-module">
+        <div className="event-module">
           <img src="/images/Group Photo.jpg" alt="Lenovo Future Center Visit" />
           <div className="event-text">
             <h3>Field Trip: Robotics Club | Lenovo Future Center</h3>
@@ -133,7 +124,7 @@ function Home() {
 
         <Link
           to="/past-event-involvementfair"
-          className="event-module award-module"
+          className="event-module"
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <img
@@ -148,15 +139,10 @@ function Home() {
           </div>
         </Link>
 
-        <br />
-        <br />
-
         <h2>{t('home.join')}</h2>
         <p>
           Interested in joining the NYU Shanghai Robotics Club? Get involved in exciting projects and competitions and shape the future of robotics with us!
         </p>
-
-        <br />
 
         <h2>{t('home.contact')}</h2>
         <p>If you have any questions or would like to learn more, please reach out through our social media platforms.</p>

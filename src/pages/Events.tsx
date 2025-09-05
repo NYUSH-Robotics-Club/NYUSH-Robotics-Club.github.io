@@ -15,7 +15,7 @@ function Events() {
 
       <div className="content">
         <h1>Upcoming Event</h1>
-        <div className="event-module award-module">
+        <div className="event-module">
           <img
             src="/images/hmJ2dyvQ_1742195030203.png"
             alt="8th China University Intelligent Robot Innovation Competition"
@@ -52,7 +52,7 @@ function Events() {
         </div>
 
         <h1>Awards</h1>
-        <div className="event-module award-module">
+        <div className="event-module">
           <img
             src="/images/2024_VEX_Asia_Open_Signaure_Event/DSC07467.JPG"
             alt="Second Prize – VEX Asia Open Signature Event"
@@ -68,7 +68,7 @@ function Events() {
           </div>
         </div>
 
-        <div className="event-module award-module">
+        <div className="event-module">
           <img
             src="/images/2024_VEX_Elite_Invitational _Competition/DSC06769.JPG"
             alt="Promising Award – SJTU VEX Elite Invitational"
@@ -85,7 +85,7 @@ function Events() {
         </div>
 
         <h1>Past Events</h1>
-        <div className="event-module award-module">
+        <div className="event-module">
           <img
             src="/images/20250418, Chen Feng, cover (1).png"
             alt="Embodied Spatial Intelligence Talk"
@@ -106,7 +106,7 @@ function Events() {
           </div>
         </div>
 
-        <div className="event-module award-module">
+        <div className="event-module">
           <img src="/images/Group Photo.jpg" alt="Lenovo Visit" />
           <div className="event-text">
             <h3>Field Trip: Robotics Club | Lenovo Future Center</h3>
@@ -120,7 +120,7 @@ function Events() {
 
         <Link
           to="/past-event-involvementfair"
-          className="event-module award-module"
+          className="event-module"
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           <img
