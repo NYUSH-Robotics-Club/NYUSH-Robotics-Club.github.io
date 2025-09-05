@@ -157,6 +157,19 @@
     padding: 0; /* Removed unnecessary padding value */
 }
 
+/* Intro section on Home page */
+.intro-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.intro-section ul {
+    margin-left: 1.5rem;
+    list-style: disc;
+}
+
 /* Image gallery container */
 .image-gallery {
     display: flex;

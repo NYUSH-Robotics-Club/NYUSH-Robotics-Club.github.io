@@ -10,9 +10,13 @@
     "wechat": "WeChat"
   },
   "home": {
-    "title": "Welcome to the NYU Shanghai Robotics Club",
-    "intro": "We are dedicated to promoting interest in robotics through education, competitions, and hands-on projects.",
-    "who": "Who We Are",
+    "title": "Welcome to NYU Shanghai Robotics Club!",
+    "introLine1": "We are an open club passionate about innovation, robotics, and teamwork. Whether your strengths lie in technical areas—such as engineering, computer vision, and electronic control—or in non-technical roles like media, marketing, and logistics, we welcome all talents, from all years in college, to join us.",
+    "introLine2": "Our club actively participates in two major competitions:",
+    "introVexU": "VEX Robotics Competition (VEX U)",
+    "introRoboMaster": "RoboMaster Robotics Competition",
+    "introLine3": "We’re excited to meet you and see how you can contribute to our growing robotics community.",
+    "introContact": "If you have any further questions, feel free to email shanghai.robotics@nyu.edu",
     "awards": "Awards",
     "upcoming": "Upcoming Events",
     "past": "Past Events",

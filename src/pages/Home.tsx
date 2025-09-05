@@ -15,16 +15,17 @@ function Home() {
       </div>
 
       <div className="content">
-        <h1>{t('home.title')}</h1>
-        <p>{t('home.intro')}</p>
-
-        <br />
-
-        <h2>{t('home.who')}</h2>
-        <p>
-          Founded in 2024, the NYU Shanghai Robotics Club provides a platform for students to explore the world of robotics.
-          Our mission is to foster creativity and technical skills through rich educational resources and practical projects.
-        </p>
+        <section className="intro-section">
+          <h1>{t('home.title')}</h1>
+          <p>{t('home.introLine1')}</p>
+          <p>{t('home.introLine2')}</p>
+          <ul>
+            <li>{t('home.introVexU')}</li>
+            <li>{t('home.introRoboMaster')}</li>
+          </ul>
+          <p>{t('home.introLine3')}</p>
+          <p>{t('home.introContact')}</p>
+        </section>
 
         <br />
         <br />
