@@ -17,51 +17,53 @@ function PastEventInvolvementFair() {
         </div>
       </div>
 
-      <div className="eventrecap">
-        <h2>{t('pastEventFair.toBeUpdated')}</h2>
-        <p>...</p>
-        <p>...</p>
-        <img
-          src="/images/Involvement Fair/Cropped Involvement Fair.JPG"
-          alt="TESOL Group Photo"
-        />
-        <p>...</p>
-      </div>
+      <div className="content">
+        <div className="eventrecap">
+          <h2>{t('pastEventFair.toBeUpdated')}</h2>
+          <p>...</p>
+          <p>...</p>
+          <img
+            src="/images/Involvement Fair/Cropped Involvement Fair.JPG"
+            alt="TESOL Group Photo"
+          />
+          <p>...</p>
+        </div>
 
-      <div className="clickable-columns">
-        <a href="#" className="column">
-          <img
-            src="/images/Involvement Fair/Involvement Fair 1.JPG"
-            alt="Annual Report"
-          />
-          <div className="column-text">
-            <h3>{t('pastEventFair.labels.event')}</h3>
-            <h2>Arduino Workshop</h2>
-          </div>
-          <span className="arrow">→</span>
-        </a>
-        <a href="#" className="column">
-          <img
-            src="/images/Involvement Fair/Involvement Fair 1.JPG"
-            alt="Student Statistics"
-          />
-          <div className="column-text">
-            <h3>{t('pastEventFair.labels.competition')}</h3>
-            <h2>VEX</h2>
-          </div>
-          <span className="arrow">→</span>
-        </a>
-        <a href="#" className="column">
-          <img
-            src="/images/Involvement Fair/Involvement Fair 1.JPG"
-            alt="Event Report"
-          />
-          <div className="column-text">
-            <h3>{t('pastEventFair.labels.event')}</h3>
-            <h2>{t('pastEventFair.highlights')}</h2>
-          </div>
-          <span className="arrow">→</span>
-        </a>
+        <div className="clickable-columns">
+          <a href="#" className="column">
+            <img
+              src="/images/Involvement Fair/Involvement Fair 1.JPG"
+              alt="Annual Report"
+            />
+            <div className="column-text">
+              <h3>{t('pastEventFair.labels.event')}</h3>
+              <h2>Arduino Workshop</h2>
+            </div>
+            <span className="arrow">→</span>
+          </a>
+          <a href="#" className="column">
+            <img
+              src="/images/Involvement Fair/Involvement Fair 1.JPG"
+              alt="Student Statistics"
+            />
+            <div className="column-text">
+              <h3>{t('pastEventFair.labels.competition')}</h3>
+              <h2>VEX</h2>
+            </div>
+            <span className="arrow">→</span>
+          </a>
+          <a href="#" className="column">
+            <img
+              src="/images/Involvement Fair/Involvement Fair 1.JPG"
+              alt="Event Report"
+            />
+            <div className="column-text">
+              <h3>{t('pastEventFair.labels.event')}</h3>
+              <h2>{t('pastEventFair.highlights')}</h2>
+            </div>
+            <span className="arrow">→</span>
+          </a>
+        </div>
       </div>
     </>
   );
