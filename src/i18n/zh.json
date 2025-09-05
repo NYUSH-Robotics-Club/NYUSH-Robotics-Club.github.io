@@ -43,5 +43,39 @@
   },
   "wechat": {
     "title": "微信二维码"
+  },
+  "general": {
+    "underConstruction": "建设中..."
+  },
+  "membersPage": {
+    "facultyMentor": "导师",
+    "visitingProfessor": "纽约大学上海计算机科学实践副教授",
+    "boardMemberProfile": "理事成员",
+    "president": "主席",
+    "vicePresident": "副主席",
+    "competitionTeamLeader": "竞赛团队负责人",
+    "directorProgramming": "编程组负责人",
+    "directorMechanical": "机械组负责人",
+    "directorSoftware": "软件开发负责人",
+    "directorResearch": "研发负责人",
+    "directorMarketing": "市场与活动负责人",
+    "directorMedia": "媒体负责人",
+    "vexUTeam": "VEX U 团队",
+    "teamLeader": "团队负责人",
+    "educationTeam": "教育团队",
+    "marketingTeam": "市场与活动团队",
+    "marketingMember": "市场与活动团队成员",
+    "mediaTeam": "媒体团队",
+    "mediaMember": "媒体团队成员"
+  },
+  "pastEventFair": {
+    "title": "社团招新会",
+    "date": "2024年9月24日",
+    "toBeUpdated": "待更新",
+    "labels": {
+      "event": "活动",
+      "competition": "比赛"
+    },
+    "highlights": "招新会精彩回顾"
   }
 }

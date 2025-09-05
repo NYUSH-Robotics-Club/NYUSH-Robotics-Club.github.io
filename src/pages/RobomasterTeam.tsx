@@ -13,7 +13,7 @@ function RobomasterTeam() {
       </div>
       <div className="content">
         <h1>{t('robomaster.title')}</h1>
-        <p>Under construction...</p>
+        <p>{t('general.underConstruction')}</p>
       </div>
     </>
   );

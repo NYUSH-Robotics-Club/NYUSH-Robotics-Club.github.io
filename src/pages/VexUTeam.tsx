@@ -17,7 +17,7 @@ function VexUTeam() {
           <div className="member">
             <img src="/images/Allen.jpg" alt="Allen Vikram Chand" />
             <h3>Allen Vikram Chand</h3>
-            <p>Team Leader</p>
+            <p>{t('membersPage.teamLeader')}</p>
           </div>
           <div className="member">
             <img src="/images/Evan.JPG" alt="Evan Xiao" />

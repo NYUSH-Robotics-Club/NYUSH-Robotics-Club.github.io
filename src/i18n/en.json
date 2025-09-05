@@ -43,5 +43,39 @@
   },
   "wechat": {
     "title": "WeChat Code"
+  },
+  "general": {
+    "underConstruction": "Under construction..."
+  },
+  "membersPage": {
+    "facultyMentor": "Faculty Mentor",
+    "visitingProfessor": "Visiting Associate Professor of Practice in Computer Science, NYU Shanghai",
+    "boardMemberProfile": "Board Member Profile",
+    "president": "President",
+    "vicePresident": "Vice President",
+    "competitionTeamLeader": "Competition Team Leader",
+    "directorProgramming": "Director of Programming Group",
+    "directorMechanical": "Director of Mechanical Group",
+    "directorSoftware": "Director of Software Development",
+    "directorResearch": "Director of Research and Development",
+    "directorMarketing": "Director of Marketing and Events",
+    "directorMedia": "Director of Media",
+    "vexUTeam": "VEX U Team",
+    "teamLeader": "Team Leader",
+    "educationTeam": "Education Team",
+    "marketingTeam": "Marketing and Events Team",
+    "marketingMember": "Marketing and Events Team Member",
+    "mediaTeam": "Media Team",
+    "mediaMember": "Media Team Member"
+  },
+  "pastEventFair": {
+    "title": "INVOLVEMENT FAIR!",
+    "date": "September 24th, 2024",
+    "toBeUpdated": "To be Updated!",
+    "labels": {
+      "event": "Event",
+      "competition": "Competition"
+    },
+    "highlights": "Involvement Fair Highlights"
   }
 }

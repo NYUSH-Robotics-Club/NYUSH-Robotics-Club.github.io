@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 function Members() {
+  const { t } = useTranslation();
   return (
     <>
       <div className="video-container">
@@ -10,71 +12,71 @@ function Members() {
         </video>
       </div>
       <div className="content">
-        <h1>Faculty Mentor</h1>
+        <h1>{t('membersPage.facultyMentor')}</h1>
         <div className="member faculty-mentor">
           <a href="https://sites.google.com/view/chandrashekar/home" target="_blank" rel="noreferrer">
             <img src="/images/Chandra.jpg" alt="Chandrashekar Radhakrishnan" />
           </a>
           <h3>Chandrashekar Radhakrishnan</h3>
-          <p>Visiting Associate Professor of Practice in Computer Science, NYU Shanghai</p>
+          <p>{t('membersPage.visitingProfessor')}</p>
         </div>
 
-        <h1>Board Member Profile</h1>
+        <h1>{t('membersPage.boardMemberProfile')}</h1>
         <div className="members-wall">
           <div className="member">
             <img src="/images/Evan.JPG" alt="Evan Xiao" />
             <h3>Evan Xiao</h3>
-            <p>President</p>
+            <p>{t('membersPage.president')}</p>
           </div>
           <div className="member">
             <img src="/images/Kyle.jpg" alt="Kyle Chen" />
             <h3>Kyle Chen</h3>
-            <p>Vice President</p>
+            <p>{t('membersPage.vicePresident')}</p>
           </div>
           <div className="member">
             <img src="/images/Allen.jpg" alt="Allen Vikram Chand" />
             <h3>Allen Vikram Chand</h3>
-            <p>Competition Team Leader</p>
+            <p>{t('membersPage.competitionTeamLeader')}</p>
           </div>
           <div className="member">
             <img src="/images/Lewis.jpg" alt="Lewis Zhang" />
             <h3>Lewis Zhang</h3>
-            <p>Director of Programming Group</p>
+            <p>{t('membersPage.directorProgramming')}</p>
           </div>
           <div className="member">
             <img src="/images/Eric.jpg" alt="Eric Liang" />
             <h3>Eric Liang</h3>
-            <p>Director of Mechanical Group</p>
+            <p>{t('membersPage.directorMechanical')}</p>
           </div>
           <div className="member">
             <img src="/images/Jeff.jpg" alt="Jeffrey Isman" />
             <h3>Jeffrey Isman</h3>
-            <p>Director of Software Development</p>
+            <p>{t('membersPage.directorSoftware')}</p>
           </div>
           <div className="member">
             <img src="/images/Noelia.jpg" alt="Noelia Yang" />
             <h3>Noelia Yang</h3>
-            <p>Director of Research and Development</p>
+            <p>{t('membersPage.directorResearch')}</p>
           </div>
           <div className="member">
             <img src="/images/Leo.jpg" alt="Leo Lei" />
             <h3>Leo Lei</h3>
-            <p>Director of Marketing and Events</p>
+            <p>{t('membersPage.directorMarketing')}</p>
           </div>
           <div className="member">
             <img src="/images/Carlos.jpg" alt="Carlos Chen" />
             <h3>Carlos Qu</h3>
-            <p>Director of Media</p>
+            <p>{t('membersPage.directorMedia')}</p>
           </div>
         </div>
 
         <div className="content">
-          <h1>VEX U Team</h1>
+          <h1>{t('membersPage.vexUTeam')}</h1>
           <div className="members-wall">
             <div className="member">
               <img src="/images/Allen.jpg" alt="Allen Vikram Chand" />
               <h3>Allen Vikram Chand</h3>
-              <p>Team Leader</p>
+              <p>{t('membersPage.teamLeader')}</p>
             </div>
             <div className="member">
               <img src="/images/Evan.JPG" alt="Evan Xiao" />
@@ -135,7 +137,7 @@ function Members() {
           </div>
         </div>
 
-        <h1>Education Team</h1>
+        <h1>{t('membersPage.educationTeam')}</h1>
         <div className="members-wall">
           <div className="member">
             <img src="/images/Deniz Acar Köstem.jpg" alt="Deniz Acar Köstem" />
@@ -143,51 +145,51 @@ function Members() {
           </div>
         </div>
 
-        <h1>Marketing and Events Team</h1>
+        <h1>{t('membersPage.marketingTeam')}</h1>
         <div className="members-wall">
           <div className="member">
             <img src="/images/Perla.jpg" alt="Perla Dai" />
             <h3>Perla Dai</h3>
-            <p>Marketing and Events Team Member</p>
+            <p>{t('membersPage.marketingMember')}</p>
           </div>
           <div className="member">
             <img src="/images/Blair.jpg" alt="Blair Zhou" />
             <h3>Blair Zhou</h3>
-            <p>Marketing and Events Team Member</p>
+            <p>{t('membersPage.marketingMember')}</p>
           </div>
           <div className="member">
             <img src="/images/Anna Liu.jpg" alt="Anna Liu" />
             <h3>Anna Liu</h3>
-            <p>Marketing and Events Team Member</p>
+            <p>{t('membersPage.marketingMember')}</p>
           </div>
           <div className="member">
             <img src="/images/Tiffany Wang.JPG" alt="Tiffany Wang" />
             <h3>Tiffany Wang</h3>
-            <p>Marketing and Events Team Member</p>
+            <p>{t('membersPage.marketingMember')}</p>
           </div>
         </div>
 
-        <h1>Media Team</h1>
+        <h1>{t('membersPage.mediaTeam')}</h1>
         <div className="members-wall">
           <div className="member">
             <img src="/images/Torico.jpg" alt="Torico Chen" />
             <h3>Torico Chen</h3>
-            <p>Media Team Member</p>
+            <p>{t('membersPage.mediaMember')}</p>
           </div>
           <div className="member">
             <img src="/images/Melissa.jpg" alt="Melissa Miao" />
             <h3>Melissa Miao</h3>
-            <p>Media Team Member</p>
+            <p>{t('membersPage.mediaMember')}</p>
           </div>
           <div className="member">
             <img src="/images/Cicci Shao.jpg" alt="Cicci Shao" />
             <h3>Cicci Shao</h3>
-            <p>Media Team Member</p>
+            <p>{t('membersPage.mediaMember')}</p>
           </div>
           <div className="member">
             <img src="/images/Xinyi Sun.jpg" alt="Xinyi Sun" />
             <h3>Xinyi Sun</h3>
-            <p>Media Team Member</p>
+            <p>{t('membersPage.mediaMember')}</p>
           </div>
         </div>
       </div>
