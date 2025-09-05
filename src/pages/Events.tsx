@@ -15,39 +15,6 @@ function Events() {
       </div>
 
       <div className="content">
-        <h1>Upcoming Event</h1>
-        <EventCard
-          imgSrc="/images/hmJ2dyvQ_1742195030203.png"
-          imgAlt="8th China University Intelligent Robot Innovation Competition"
-        >
-          <h3>8th China University Intelligent Robot Innovation Competition</h3>
-          <p>
-            Established in 2017, this national-level competition is jointly hosted by the China Association of Higher
-            Education, the Ministry of Education’s Engineering Graphics Curriculum Committee, and the China University
-            Intelligent Robot Innovation Competition Committee. It is co-organized by Zhejiang University and supported by
-            the People’s Government of Yuyao, Zhejiang.
-          </p>
-          <p>
-            Held annually, the event promotes innovation and engineering skills among university students through a talent
-            development chain integrating problem discovery, solution design, technical implementation, and project
-            incubation. In 2020, it was listed among the top national university competitions in China.
-          </p>
-          <p>
-            <strong>Special Event 3: VEX U Intelligent Robot Competition</strong>
-            <br />
-            As part of the globally renowned VEX World Championship, this year’s VEX U challenge is titled
-            <em>“High Stakes.”</em> Each team controls two robots on a 3.7m x 3.7m field, competing through a 30-second
-            autonomous period and a 90-second driver-controlled period. Points are earned by placing rings on posts,
-            moving mobile goals, and climbing during the endgame.
-            <br />
-            <br />
-            Learn more via the{' '}
-            <a href="https://www.vexforum.cn/t/topic/14581?" target="_blank" rel="noreferrer">
-              official Chinese VEX forum
-            </a>
-            .
-          </p>
-        </EventCard>
 
         <h1>Awards</h1>
         <EventCard

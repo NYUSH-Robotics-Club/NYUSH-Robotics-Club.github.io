@@ -24,11 +24,9 @@ function Home() {
             <li>{t('home.introVexU')}</li>
             <li>{t('home.introRoboMaster')}</li>
           </ul>
-          <p>{t('home.introLine3')}</p>
-          <p>{t('home.introContact')}</p>
         </section>
 
-        <h2>{t('home.awards')}</h2>
+        <h2 className="section-title">{t('home.competition')}</h2>
 
         <EventCard
           imgSrc="/images/2024_VEX_Asia_Open_Signaure_Event/DSC07467.JPG"
@@ -52,34 +50,7 @@ function Home() {
           </p>
         </EventCard>
 
-        <h2>{t('home.upcoming')}</h2>
-        <EventCard
-          imgSrc="/images/hmJ2dyvQ_1742195030203.png"
-          imgAlt="8th China University Intelligent Robot Innovation Competition"
-        >
-          <h3>8th China University Intelligent Robot Innovation Competition</h3>
-          <p>
-            Established in 2017, this national-level competition is hosted by the China Association of Higher Education and co-organized by Zhejiang University and the People’s Government of Yuyao.
-          </p>
-          <p>
-            The event fosters innovation through a talent development chain integrating problem discovery, solution design, technical implementation, and incubation.
-          </p>
-          <p>
-            <strong>Special Event 3: VEX U Intelligent Robot Competition</strong>
-            <br />
-            This year's theme “High Stakes” features two robots per team in a 3.7m x 3.7m arena with autonomous and driver-controlled periods.
-            Teams score by placing rings, moving mobile goals, and climbing during the endgame.
-            <br />
-            <br />
-            Learn more via the{' '}
-            <a href="https://www.vexforum.cn/t/topic/14581?" target="_blank" rel="noreferrer">
-              official Chinese VEX forum
-            </a>
-            .
-          </p>
-        </EventCard>
-
-        <h2>{t('home.past')}</h2>
+        <h2 className="section-title">{t('home.past')}</h2>
 
         <EventCard
           imgSrc="/images/20250418, Chen Feng, cover (1).png"
@@ -123,13 +94,16 @@ function Home() {
           </EventCard>
         </Link>
 
-        <h2>{t('home.join')}</h2>
-        <p>
-          Interested in joining the NYU Shanghai Robotics Club? Get involved in exciting projects and competitions and shape the future of robotics with us!
-        </p>
-
-        <h2>{t('home.contact')}</h2>
-        <p>If you have any questions or would like to learn more, please reach out through our social media platforms.</p>
+        <h2 className="section-title">{t('home.join')}</h2>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <img
+            src="/images/robotics_club_poster.png"
+            alt="NYU Shanghai Robotics Club recruitment poster"
+            style={{ maxWidth: '50%', height: 'auto', borderRadius: '12px' }}
+            loading="lazy"
+          />
+        </div>
+        
       </div>
     </>
   );
