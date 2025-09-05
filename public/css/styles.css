@@ -161,7 +161,7 @@
 .intro-section {
     max-width: 800px;
     margin: 2rem auto;
-    line-height: 1.6;
+    line-height: 1.8;
     text-align: left;
 }
 
@@ -426,7 +426,10 @@ nav ul li a:hover {
 }
 
 .content {
-    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+    line-height: 1.8;
     text-align: center;
     background-color: #fff;
     position: relative;
