@@ -27,12 +27,6 @@ function Header() {
             <Link to="/">{t('nav.home')}</Link>
           </li>
           <li>
-            <Link to="/about">{t('nav.about')}</Link>
-          </li>
-          <li>
-            <Link to="/members">{t('nav.members')}</Link>
-          </li>
-          <li>
             <Link to="/events">{t('nav.events')}</Link>
           </li>
           <li>

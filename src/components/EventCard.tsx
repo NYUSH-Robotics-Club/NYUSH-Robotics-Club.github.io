@@ -7,10 +7,14 @@ interface EventCardProps {
 }
 
 const EventCard: React.FC<EventCardProps> = ({ imgSrc, imgAlt, children }) => (
-  <div className="event-module">
-    <img src={imgSrc} alt={imgAlt} />
-    <div className="event-text">{children}</div>
-  </div>
+  <article className="event-card" role="group" aria-label={imgAlt}>
+    <div className="event-card__media">
+      <img src={imgSrc} alt={imgAlt} loading="lazy" />
+    </div>
+    <div className="event-card__body">
+      {children}
+    </div>
+  </article>
 );
 
 export default EventCard;
