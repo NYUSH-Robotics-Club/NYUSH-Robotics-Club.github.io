@@ -39,7 +39,11 @@ function Header() {
             <Link to="/contact">{t('nav.contact')}</Link>
           </li>
           <li>
-            <button onClick={switchLanguage}>
+            <button
+              type="button"
+              onClick={switchLanguage}
+              className="language-switch"
+            >
               {i18n.language === 'en' ? '中文' : 'EN'}
             </button>
           </li>
