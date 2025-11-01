@@ -1,0 +1,156 @@
+/* General body styles */
+body {
+  margin: 0;
+  background-color: black; /* Set background to black for the scene */
+  overflow: hidden; /* Hide scrollbars as animation is self-contained */
+}
+
+/* Container for the entire animation to keep it self-contained */
+.star-wars-animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  overflow: hidden;
+  z-index: 100; /* Ensure it's on top */
+}
+
+/* Intro text animation */
+.intro {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  animation: intro 3s ease-out 1s;
+    color: #8feeff;
+    text-shadow: 0px 0px 20px #00ffffaa, 0 0 40px #66e0ff55;
+  font-weight: 400;
+  font-size: 300%;
+  opacity: 0;
+  text-align: center;
+}
+
+@keyframes intro {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Logo animation */
+.logo {
+  position: absolute;
+  width: 40vw; /* Use viewport width for responsive size */
+  max-width: 80em; /* Add a max-width to prevent it from being too large */
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  animation: logo 10s ease-out 4s; /* Starts after intro text fades */
+  opacity: 0;
+}
+
+.logo img {
+  width: 100%;
+}
+
+@keyframes logo {
+  0% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
+  }
+}
+
+/* Crawl text board */
+#board {
+  font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
+  transform: perspective(400px) rotateX(25deg);
+  transform-origin: 50% 100%;
+  text-align: justify;
+  position: absolute;
+  margin-left: -9em;
+  font-weight: bold;
+  overflow: hidden;
+  font-size: 4vw; /* Responsive font size */
+  height: 50em;
+  width: 18em;
+  bottom: 0;
+  left: 50%;
+}
+
+/* On larger screens, cap the font size to prevent it from getting too big */
+@media (min-width: 1200px) {
+  #board {
+    font-size: 48px; /* 1200 * 0.04 = 48 */
+  }
+}
+
+/* Fading gradient at the top */
+#board:after {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  bottom: 60%;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* The scrolling content */
+#content {
+  animation: scroll 30s linear 18s; /* Starts after logo fades */
+  position: absolute;
+  top: 100%;
+}
+
+#content p {
+  color: #FFFF82; /* The classic yellow */
+}
+
+#title, #subtitle {
+  text-align: center;
+}
+
+@keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+/* Skip intro button */
+.skip-intro-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 20vw;
+  max-width: 250px; /* Cap the max width */
+  padding: 1vw;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 101;
+  font-family: sans-serif;
+  font-size: 2vw; /* Responsive font size */
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  .skip-intro-button {
+    font-size: 24px; /* Cap the font size */
+  }
+}
+
+.skip-intro-button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}

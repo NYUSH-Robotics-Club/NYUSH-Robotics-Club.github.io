@@ -1,0 +1,368 @@
+/* About Component Styles */
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* hero-container is removed */
+
+/* Hero Section with full screen knockout */
+.hero-section {
+  position: relative;
+  height: 150vh; /* Provides 50vh scroll space for the sticky knockout image */
+  width: 100%;
+  z-index: 0;
+}
+
+/* Full screen knockout image */
+.knockout-fullscreen {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.knockout-image-fullscreen {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Desktop - also width fit and center */
+@media (min-width: 1025px) {
+  .knockout-image-fullscreen {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Main Content Section */
+.main-content {
+  padding: 4rem 2rem;
+  background: transparent; /* Changed from gradient to transparent */
+  min-height: 100vh;
+  color: white; /* Added white text color */
+  position: relative;
+  z-index: 10; /* Ensure content is above videos and images */
+}
+
+.content-container {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.club-description {
+  font-size: 1.5vw;
+  line-height: 2.2;
+  color: white; /* Changed from #333 to white */
+  margin: 0 0 6rem 0;
+  max-width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 0.02em;
+}
+
+.main-content h2 {
+  font-size: 3vw;
+  color: white; /* Changed from #2c3e50 to white */
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.our-team-heading {
+  font-size: 5em;
+  color: white;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.our-team-section {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.teams-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.team-button {
+  background: rgba(255, 255, 255, 0.1); /* Changed from solid white to transparent white */
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  max-width: 300px;
+  width: 100%;
+  backdrop-filter: blur(10px); /* Added blur effect for glass morphism */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Added subtle border */
+  position: relative;
+  z-index: 10;
+}
+
+.team-button:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.15); /* Slightly more opaque on hover */
+}
+
+.team-button a,
+.team-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.team-button img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.team-text {
+  font-size: 1.5vw;
+  font-weight: 600;
+  color: white; /* Changed from #2c3e50 to white */
+}
+
+/* Team Selection Wrapper */
+.team-selection-wrapper {
+  margin: 3rem 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: transparent; /* Added transparent background */
+  position: relative;
+  z-index: 10;
+}
+
+.star-wars-intro-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 20; /* Ensure it's on top */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 2rem 1rem;
+  }
+  
+  .club-description {
+    font-size: 3.5vw;
+    padding: 0 1rem;
+  }
+  
+  .main-content h2 {
+    font-size: 6vw;
+  }
+  
+  .team-text {
+    font-size: 4vw;
+  }
+  
+  .teams-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .team-button {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .club-description {
+    font-size: 4vw;
+  }
+  
+  .main-content h2 {
+    font-size: 7vw;
+  }
+  
+  .team-text {
+    font-size: 5vw;
+  }
+  
+  .team-button {
+    padding: 1.5rem;
+    max-width: 250px;
+  }
+  
+  .team-button img {
+    height: 150px;
+  }
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar on hero section */
+.hero-section {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hero-section::-webkit-scrollbar {
+  display: none;
+}
+
+/* Landing Page Grid Layout */
+.landing-page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+}
+
+.landing-grid {
+  flex: 1;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 75vh 1fr;
+  gap: 0;
+}
+
+/* Top row cards - larger sections */
+.top-row-card {
+  width: 100%;
+  height: 75vh;
+  min-height: 75vh;
+  max-height: 75vh;
+  overflow: hidden;
+}
+
+.robomaster-wrapper {
+  grid-column: span 3;
+  height: 75vh;
+  min-height: 75vh;
+  max-height: 75vh;
+  overflow: hidden;
+}
+
+.vex-wrapper {
+  grid-column: span 3;
+  height: 75vh;
+  min-height: 75vh;
+  max-height: 75vh;
+  overflow: hidden;
+}
+
+/* Bottom row cards - smaller sections */
+.bottom-row-card {
+  width: 100%;
+  height: 100%;
+  grid-column: span 2;
+}
+
+/* Laptop screen optimizations */
+@media (min-width: 1024px) and (max-width: 1600px) {
+  .landing-grid {
+    padding: 0;
+    gap: 0;
+  }
+}
+
+@media (min-width: 1366px) and (max-width: 1920px) {
+  .landing-grid {
+    padding: 0;
+    gap: 0;
+  }
+}
+
+/* Responsive adjustments for landing grid */
+@media (max-width: 768px) {
+  .landing-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0;
+    padding: 0;
+  }
+  
+  .robomaster-wrapper,
+  .vex-wrapper,
+  .bottom-row-card {
+    grid-column: span 1;
+  }
+  
+  .top-row-card,
+  .bottom-row-card {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-grid {
+    padding: 0;
+    gap: 0;
+  }
+  
+  .top-row-card,
+  .bottom-row-card {
+    min-height: 150px;
+  }
+}

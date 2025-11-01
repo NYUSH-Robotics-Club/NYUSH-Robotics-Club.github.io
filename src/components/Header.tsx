@@ -1,50 +1,62 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import './Header.css';
 
-function Header() {
-  const { t, i18n } = useTranslation();
-  const [open, setOpen] = useState(false);
-  const toggleMenu = () => setOpen(!open);
-  const switchLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'en' ? 'zh' : 'en');
-  };
-
+export default function Header() {
   return (
-    <header>
-      <a href="https://shanghai.nyu.edu" className="logo">
-        <img src="/images/NYUSH logo.png" alt="Robotics Club Logo" />
-      </a>
-      <nav className={open ? 'expanded' : ''}>
-        <img
-          src="/images/listbutton.png"
-          alt="Menu"
-          className="menu-button"
-          onClick={toggleMenu}
+    <header className="app-header">
+      <div className="header-container">
+        <img 
+          src="/icons/logo.png" 
+          alt="Robotics Club Logo" 
+          className="header-logo club-logo" 
         />
-        <ul className={open ? '' : 'hidden'}>
-          <li>
-            <Link to="/">{t('nav.home')}</Link>
-          </li>
-          <li>
-            <Link to="/events">{t('nav.events')}</Link>
-          </li>
-          <li>
-            <Link to="/contact">{t('nav.contact')}</Link>
-          </li>
-          <li>
-            <button
-              type="button"
-              onClick={switchLanguage}
-              className="language-switch"
-            >
-              {i18n.language === 'en' ? '中文' : 'EN'}
-            </button>
-          </li>
-        </ul>
-      </nav>
+        
+        <div className="header-social">
+          <a 
+            href="https://www.instagram.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="Instagram"
+          >
+            <img 
+              src="/icons/icons8-instagram-120.png" 
+              alt="Instagram" 
+              className="social-icon" 
+            />
+          </a>
+          <a 
+            href="https://www.linkedin.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="LinkedIn"
+          >
+            <img 
+              src="/icons/icons8-linkedin-120.png" 
+              alt="LinkedIn" 
+              className="social-icon" 
+            />
+          </a>
+          <a 
+            href="#" 
+            className="social-link"
+            aria-label="WeChat"
+          >
+            <img 
+              src="/icons/icons8-wechat-120.png" 
+              alt="WeChat" 
+              className="social-icon" 
+            />
+          </a>
+        </div>
+
+        <img 
+          src="/icons/NYUSH logo.png" 
+          alt="NYU Shanghai Logo" 
+          className="header-logo nyush-logo" 
+        />
+      </div>
     </header>
   );
 }
-
-export default Header;

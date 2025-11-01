@@ -1,0 +1,131 @@
+/* Header.css - Header with logos and social icons */
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 8vh;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+.header-logo {
+  height: 8vh;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+.header-logo:hover {
+  opacity: 1;
+}
+
+.nyush-logo {
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.club-logo {
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.header-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.8;
+}
+
+.social-link:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.social-icon {
+  width: 8vh;
+  height: 8vh;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  filter: brightness(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header {
+    height: 8vh;
+  }
+
+  .header-container {
+    padding: 0;
+  }
+
+  .header-logo {
+    height: 8vh;
+  }
+
+  .header-social {
+    gap: 1rem;
+  }
+
+  .social-icon {
+    width: 8vh;
+    height: 8vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    height: 8vh;
+  }
+
+  .header-container {
+    padding: 0;
+  }
+
+  .header-logo {
+    height: 8vh;
+  }
+
+  .header-social {
+    gap: 0.75rem;
+  }
+
+  .social-icon {
+    width: 8vh;
+    height: 8vh;
+  }
+}

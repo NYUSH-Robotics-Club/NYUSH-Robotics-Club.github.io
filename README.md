@@ -1,47 +1,18 @@
-# NYU Shanghai Robotics Club Website
+# React + Vite
 
-This repository contains the source code for the NYU Shanghai Robotics Club website.
-It is built with [React](https://react.dev/) and [TypeScript](https://www.typescriptlang.org/) using [Vite](https://vitejs.dev/) for fast development and builds.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
-- Client-side routing with React Router
-- English and Chinese localization powered by `react-i18next`
-- Modular components for header, footer and individual pages
+Currently, two official plugins are available:
 
-## Project Structure
-```
-.
-├── public/           # static assets copied as-is
-├── src/
-│   ├── components/   # shared UI components
-│   ├── pages/        # page components used by routes
-│   ├── i18n/         # locale files and i18n setup
-│   └── main.tsx      # application entry point
-├── index.html        # Vite HTML entry
-└── package.json      # npm scripts and dependencies
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Development
-1. Install dependencies
-   ```bash
-   npm install
-   ```
-2. Start a development server with hot-reload
-   ```bash
-   npm run dev
-   ```
-3. Create a production build
-   ```bash
-   npm run build
-   ```
-4. Preview the production build locally
-   ```bash
-   npm run preview
-   ```
+## React Compiler
 
-## Internationalization
-Locale files live in `src/i18n/` and contain English (`en.json`) and Chinese (`zh.json`) translations.
-Use the `t('key')` function from `react-i18next` inside components to render localized text.
+The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
-## License
-This project is intended for the NYU Shanghai Robotics Club and does not yet include a specific license.
+Note: This will impact Vite dev & build performances.
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

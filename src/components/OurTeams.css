@@ -1,0 +1,445 @@
+/* Our Teams Section Styles */
+.our-teams-container {
+  background: transparent !important;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+}
+.our-teams-container.grid-only {
+  max-height: 100vh !important;
+  height: 100vh !important;
+  overflow: hidden;
+  padding: 0;
+}
+
+.back-button {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.our-teams-content {
+  max-width: 90vw;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse; /* Detail panel on right, grid on left */
+  gap: 2.5rem;
+}
+
+.our-teams-content.center-grid {
+  flex-direction: row-reverse; /* Grid on left, description on right for laptop */
+  align-items: flex-start;
+  max-width: 1400px;
+  gap: clamp(1rem, 2vw, 2.5rem);
+  justify-content: center;
+  max-height: 85vh;
+}
+
+/* Left: Grid Section */
+.teams-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vh, 0.75rem);
+  min-height: 0;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.our-teams-content.center-grid .teams-section {
+  width: 100%;
+  max-width: 1000px;
+  flex: 1;
+  min-height: 0;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* Department Selection Bar */
+.department-bar {
+  display: flex;
+  gap: clamp(0.15rem, 0.3vw, 0.25rem);
+  padding: clamp(0.2rem, 0.5vh, 0.3rem);
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  flex-shrink: 0;
+}
+
+.department-tab {
+  flex: 1;
+  padding: clamp(0.3rem, 0.6vh, 0.5rem) clamp(0.8rem, 1.5vw, 1.2rem);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: clamp(0.7rem, 1vw, 1vw);
+  white-space: nowrap;
+}
+
+.department-tab:hover {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: #06b6d4;
+}
+
+.department-tab.active {
+  background: #06b6d4;
+  border-color: #06b6d4;
+  color: white;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vh, 2.5rem);
+  flex: 1;
+  min-height: 0;
+  max-height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.team-member-card {
+  cursor: pointer;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  aspect-ratio: 1;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.team-member-card:hover {
+  border-color: #06b6d4;
+}
+
+.team-member-card.selected {
+  border-color: #22d3ee;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right: Detail Panel */
+.team-detail-panel {
+  position: relative;
+  flex: 0 0 calc(33.333% - 1.67rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  border: 1px solid rgba(71, 85, 105, 1);
+}
+
+.team-detail-panel.grid-only-detail {
+  flex: 0 0 30%;
+  min-width: 0;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 2.5vh, 2.5rem);
+}
+
+.detail-image-container {
+  position: relative;
+  width: clamp(8rem, 12vw, 16rem);
+  height: clamp(8rem, 12vw, 16rem);
+  overflow: hidden;
+  margin-bottom: clamp(0.75rem, 1.5vh, 1.5rem);
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+
+.detail-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.detail-info {
+  text-align: center;
+  width: 100%;
+}
+
+.member-name {
+  font-size: clamp(1rem, 2vw, 2vw);
+  font-weight: 700;
+  margin-bottom: clamp(0.25rem, 0.5vh, 0.5rem);
+}
+
+.member-description {
+  font-size: clamp(0.7rem, 1vw, 1vw);
+  color: rgba(148, 163, 184, 1);
+  margin-bottom: clamp(0.5rem, 1vh, 1rem);
+  text-align: left;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.member-stats {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem, 0.5vh, 0.5rem);
+  text-align: left;
+  font-size: clamp(0.7rem, 1vw, 1vw);
+  margin-bottom: clamp(0.75rem, 1.5vh, 1.5rem);
+}
+
+.stat-value {
+  color: #22d3ee;
+}
+
+.continue-button {
+  margin-top: clamp(0.75rem, 1.5vh, 1.5rem);
+  background: #06b6d4;
+  padding: clamp(0.4rem, 0.8vh, 0.5rem) clamp(1rem, 2vw, 1.5rem);
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: clamp(0.8rem, 1.2vw, 1.2vw);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.continue-button:hover {
+  background: #0891b2;
+}
+
+/* Laptop screen optimizations - reduce grid size to fit in 90vh, keep description panel size */
+@media (min-width: 1024px) and (max-width: 1920px) {
+  .our-teams-container.grid-only {
+    padding: clamp(1rem, 2vh, 2.5rem);
+    padding-top: clamp(3rem, 5vh, 5rem);
+    max-height: 90vh;
+    overflow: hidden;
+  }
+
+  .our-teams-content.center-grid {
+    max-height: 85vh;
+    gap: clamp(1rem, 1.5vw, 1.5rem);
+  }
+
+  /* Reduce grid section size only */
+  .our-teams-content.center-grid .teams-section {
+    flex: 0 1 auto;
+    max-width: 600px; /* Smaller max-width for grid */
+    width: auto;
+  }
+
+  /* Smaller department bar */
+  .our-teams-content.center-grid .department-bar {
+    padding: clamp(0.15rem, 0.4vh, 0.25rem);
+    margin-bottom: clamp(0.25rem, 0.5vh, 0.5rem);
+  }
+
+  .our-teams-content.center-grid .department-tab {
+    padding: clamp(0.25rem, 0.5vh, 0.4rem) clamp(0.6rem, 1.2vw, 1rem);
+    font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+  }
+
+  /* Smaller grid with tighter gaps */
+  .our-teams-content.center-grid .teams-grid {
+    gap: clamp(0.5rem, 1vh, 0.8rem);
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  /* Ensure teams-section fits */
+  .our-teams-content.center-grid .teams-section {
+    max-height: calc(85vh - 2rem);
+  }
+
+  /* Smaller cards */
+  .our-teams-content.center-grid .team-member-card {
+    max-width: 100%;
+    border-radius: 0.75rem;
+  }
+
+  /* Keep description panel size unchanged - remove scaling */
+  .our-teams-content.center-grid .team-detail-panel.grid-only-detail {
+    flex: 0 0 35%;
+    min-width: 0;
+  }
+
+  /* Keep detail panel images and text at normal size */
+  .our-teams-content.center-grid .detail-image-container {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
+/* Additional optimization for landscape/wide laptop screens */
+@media (min-width: 1024px) and (max-width: 1920px) and (min-aspect-ratio: 4/3) {
+  /* Even smaller grid for landscape orientation */
+  .our-teams-content.center-grid .teams-section {
+    max-width: 550px; /* Even smaller for wide screens */
+  }
+
+  .our-teams-content.center-grid .teams-grid {
+    gap: clamp(0.4rem, 0.8vh, 0.7rem);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .our-teams-content {
+    flex-direction: column; /* Detail panel on top for tablets and below */
+    gap: 1.5rem;
+  }
+
+  .our-teams-content.center-grid {
+    flex-direction: column; /* Description on top for smaller screens */
+    align-items: center;
+  }
+  
+  .team-detail-panel {
+    width: 100%;
+  }
+
+  .team-detail-panel.grid-only-detail {
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: auto;
+  }
+
+  .our-teams-content.center-grid .teams-section {
+    order: 2; /* Grid below description on mobile */
+  }
+
+  .our-teams-content.center-grid .team-detail-panel {
+    order: 1; /* Description above grid on mobile */
+  }
+  
+  .department-tab {
+    font-size: 2vw;
+    padding: 0.5rem 1rem;
+  }
+  
+  .member-name {
+    font-size: 4vw;
+  }
+  
+  .member-description {
+    font-size: 2vw;
+  }
+  
+  .member-stats {
+    font-size: 2vw;
+  }
+  
+  .continue-button {
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .teams-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .our-teams-container {
+    padding: 1.5rem;
+  }
+  
+  .department-tab {
+    font-size: 2.5vw;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .member-name {
+    font-size: 5vw;
+  }
+  
+  .member-description {
+    font-size: 3vw;
+  }
+  
+  .member-stats {
+    font-size: 3vw;
+  }
+  
+  .continue-button {
+    font-size: 3.5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .teams-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .detail-image-container {
+    width: 12rem;
+    height: 12rem;
+  }
+  
+  .our-teams-container {
+    padding: 1rem;
+  }
+  
+  .department-tab {
+    font-size: 3vw;
+    padding: 0.35rem 0.7rem;
+  }
+  
+  .member-name {
+    font-size: 6vw;
+  }
+  
+  .member-description {
+    font-size: 3.5vw;
+  }
+  
+  .member-stats {
+    font-size: 3.5vw;
+  }
+  
+  .continue-button {
+    font-size: 4vw;
+  }
+}

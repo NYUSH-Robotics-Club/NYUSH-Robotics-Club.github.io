@@ -1,0 +1,408 @@
+/* CardOpener.css - Styles for card opening modal */
+
+.card-opener-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.card-opener-backdrop.closing {
+  pointer-events: none;
+}
+
+/* Flip Card Container */
+.flip-card {
+  position: fixed;
+  width: 400px;
+  height: 500px;
+  perspective: 1000px;
+  z-index: 1001;
+  transform-style: preserve-3d;
+  pointer-events: auto;
+  will-change: transform;
+  transform-origin: center center;
+  /* Position will be controlled by Framer Motion */
+}
+
+.flip-card.closing {
+  pointer-events: none;
+}
+
+/* Flipper - rotates to show front/back */
+.flip-card__flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 600ms ease-in-out;
+}
+
+/* Front and Back sides */
+.flip-card__front,
+.flip-card__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Front Side - Card Preview */
+.flip-card__front {
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.flip-card-front-content {
+  text-align: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.flip-card-front-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.flip-card-front-title {
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 0;
+}
+
+/* Back Side - Page Content */
+.flip-card__back {
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  color: white;
+  overflow: hidden;
+  /* Video background will show through */
+}
+
+.flip-card-back-content {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: transparent;
+  position: relative;
+}
+
+.component-page-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.card-page-content {
+  padding: 4rem 3rem 3rem 3rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.card-page-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-shrink: 0;
+}
+
+.card-page-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.card-page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 200;
+  margin: 0;
+  color: white;
+}
+
+.card-detail-content {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  flex: 1;
+}
+
+.card-section {
+  margin-bottom: 3rem;
+}
+
+.card-section h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #22d3ee;
+}
+
+.card-section p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 1rem;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.event-list li {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  position: relative;
+}
+
+.event-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #22d3ee;
+}
+
+/* Medium stage - slightly larger */
+.flip-card.card-opener-stage-medium {
+  width: 500px !important;
+  height: 600px !important;
+}
+
+.flip-card.card-opener-stage-medium .flip-card__front,
+.flip-card.card-opener-stage-medium .flip-card__back {
+  width: 500px;
+  height: 600px;
+}
+
+/* Fullscreen stage - 100% screen */
+.flip-card.card-opener-stage-fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+}
+
+.flip-card.card-opener-stage-fullscreen .flip-card__front,
+.flip-card.card-opener-stage-fullscreen .flip-card__back {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Back button - replaces X button */
+.card-opener-back-button {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+
+.card-opener-back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateX(-5px);
+}
+
+.card-opener-content {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  padding-top: 4rem;
+  overflow-y: auto;
+  height: 100%;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+.card-opener-image-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 2rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-opener-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-opener-details {
+  text-align: center;
+}
+
+.card-opener-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.card-opener-department {
+  font-size: 1.2rem;
+  color: #06b6d4;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.card-opener-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.card-opener-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #22d3ee;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-opener-modal {
+    width: 95%;
+    max-height: 95vh;
+    border-radius: 1.5rem;
+  }
+
+  .card-opener-content {
+    padding: 2rem;
+    padding-top: 3rem;
+  }
+
+  .card-opener-image-container {
+    max-width: 200px;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-opener-name {
+    font-size: 2rem;
+  }
+
+  .card-opener-department {
+    font-size: 1rem;
+  }
+
+  .card-opener-description {
+    font-size: 1rem;
+  }
+
+  .card-opener-stats {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-opener-modal {
+    width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    top: 0;
+    left: 0;
+    transform: none;
+    height: 100vh;
+  }
+
+  .card-opener-content {
+    padding: 1.5rem;
+    padding-top: 3rem;
+  }
+
+  .card-opener-image-container {
+    max-width: 150px;
+  }
+
+  .card-opener-name {
+    font-size: 1.5rem;
+  }
+
+  .stat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
