@@ -86,8 +86,17 @@ the tightest pair in the palette.
 - Each route sets its own `document.title` via `usePageTitle()`.
 - Route chunks are lazy, so the `<Suspense>` fallback matters. Don't turn it into
   an empty div.
-- `/404.html` (built from `index.html`) is served with HTTP 200 for *any* unknown
-  URL, so `NotFound` injects `<meta name="robots" content="noindex">`.
+- GitHub Pages is static hosting with **no server-side rewrite**. Deep links work
+  because the build emits a real file for every route:
+  `dist/<route>/index.html` (plus `dist/404.html` for anything else). Only having
+  `404.html` is not enough — the page renders, but the server answers **HTTP 404**,
+  so search engines treat every subpage as missing.
+  **Adding a route means adding it to `ROUTES` in `vite.config.ts`**, or it will 404
+  in production. CI checks each one on every build.
+- Unknown URLs are served `404.html` with a genuine 404 status; `NotFound` also
+  injects `<meta name="robots" content="noindex">` as a second line of defence.
+- URLs are canonical **with a trailing slash** (`/events/`); `/events` gets a 301
+  from Pages. `public/sitemap.xml` must match.
 - Event images ship two sizes (`-700.webp` + full) wired through `srcSet` in
   `Entry.tsx` / `RecordRow.tsx`. Regenerate the small variant for new photos.
 - The NYU Shanghai logo in `public/images/` is the **white** version. On the light
@@ -98,9 +107,10 @@ the tightest pair in the palette.
 Pushing to `main` runs `.github/workflows/deploy.yml`, which builds and publishes
 `dist/` to GitHub Pages.
 
-`vite.config.ts` copies `dist/index.html` to `dist/404.html` after every build.
-Without it GitHub shows its own 404 for deep links like `/events`.
-**Do not remove the `spa-404-fallback` plugin.**
+`vite.config.ts` emits `dist/<route>/index.html` for every route in `ROUTES`, plus
+`dist/404.html`. Without it GitHub returns its own 404 for deep links like `/events`.
+**Do not remove the `spa-static-routes` plugin, and keep its `ROUTES` list in sync
+with `App.tsx`.**
 
 ## Assets
 
