@@ -1,23 +1,53 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import Hero from '../components/Hero';
+import { HERO_MEDIA } from '../data/media';
+import usePageTitle from '../hooks/usePageTitle';
 
 function Contact() {
   const { t } = useTranslation();
+  usePageTitle(t('contact.title'));
+  const email = t('footer.contactEmail');
+
   return (
     <>
-      <div className="video-container">
-        <video autoPlay muted loop playsInline>
-          <source src="/videos/Contact.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div className="content">
-        <h1>{t('contact.title')}</h1>
-        <p>Get in touch with the NYU Shanghai Robotics Club!</p>
-        <p>
-          <a href="mailto:shanghai.robotics@nyu.edu">shanghai.robotics@nyu.edu</a>
-        </p>
-      </div>
+      <Hero media={HERO_MEDIA.contact} title={t('contact.title')} lead={t('contact.lead')} short />
+
+      <section className="section">
+        <div className="shell">
+          <div className="contact-list">
+            <div>
+              <h3>{t('contact.emailLabel')}</h3>
+              <a href={`mailto:${email}`}>{email}</a>
+            </div>
+
+            <div>
+              <h3>{t('contact.socialLabel')}</h3>
+              <a
+                href="https://www.instagram.com/nyush_robotics_club/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.linkedin.com/company/robotics-club-at-nyu-shanghai"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+              <Link to="/wechat-code">{t('footer.wechat')}</Link>
+            </div>
+
+            <div>
+              <h3>{t('contact.addressLabel')}</h3>
+              <p>{t('contact.addressValue')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

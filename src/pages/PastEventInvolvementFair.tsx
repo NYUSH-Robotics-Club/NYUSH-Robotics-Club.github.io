@@ -1,70 +1,59 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import SectionHead from '../components/SectionHead';
+import usePageTitle from '../hooks/usePageTitle';
+
+const GALLERY = [
+  {
+    src: '/images/Involvement Fair/Involvement Fair 1.webp',
+    alt: 'Robotics Club booth at the 2024 Fall Involvement Fair',
+  },
+  {
+    src: '/images/Involvement Fair/Cropped Involvement Fair.webp',
+    alt: 'Students visiting the Robotics Club booth',
+  },
+];
 
 function PastEventInvolvementFair() {
   const { t } = useTranslation();
+  usePageTitle(t('pastEventFair.title'));
+
   return (
     <>
-      <div className="background-container">
+      <section className="hero hero--short" aria-label={t('pastEventFair.title')}>
         <img
-          src="/images/Involvement Fair/Cropped Involvement Fair.JPG"
-          alt="Background Image"
-          className="image-with-shadow"
+          className="hero__poster"
+          src="/images/Involvement Fair/Cropped Involvement Fair.webp"
+          alt=""
+          aria-hidden="true"
+          decoding="async"
         />
-        <div className="background-container-content">
-          <h1>{t('pastEventFair.title')}</h1>
-          <h2>{t('pastEventFair.date')}</h2>
+        <div className="hero__scrim" aria-hidden="true" />
+        <div className="hero__inner">
+          <h1 className="hero__title">{t('pastEventFair.title')}</h1>
+          <p className="hero__lead">{t('pastEventFair.date')}</p>
         </div>
-      </div>
+      </section>
 
-      <div className="content">
-        <div className="eventrecap">
-          <h2>{t('pastEventFair.toBeUpdated')}</h2>
-          <p>...</p>
-          <p>...</p>
-          <img
-            src="/images/Involvement Fair/Cropped Involvement Fair.JPG"
-            alt="TESOL Group Photo"
-          />
-          <p>...</p>
+      <section className="section">
+        <div className="shell">
+          <SectionHead>{t('pastEventFair.recapTitle')}</SectionHead>
+          <div>
+            <p>{t('pastEventFair.recapBody')}</p>
+            <div className="gallery">
+              {GALLERY.map((item) => (
+                <img key={item.src} src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+              ))}
+            </div>
+          </div>
+          <p className="mt-7">
+            <Link className="btn btn--ghost" to="/events">
+              {t('home.allEvents')}
+            </Link>
+          </p>
         </div>
-
-        <div className="clickable-columns">
-          <a href="#" className="column">
-            <img
-              src="/images/Involvement Fair/Involvement Fair 1.JPG"
-              alt="Annual Report"
-            />
-            <div className="column-text">
-              <h3>{t('pastEventFair.labels.event')}</h3>
-              <h2>Arduino Workshop</h2>
-            </div>
-            <span className="arrow">→</span>
-          </a>
-          <a href="#" className="column">
-            <img
-              src="/images/Involvement Fair/Involvement Fair 1.JPG"
-              alt="Student Statistics"
-            />
-            <div className="column-text">
-              <h3>{t('pastEventFair.labels.competition')}</h3>
-              <h2>VEX</h2>
-            </div>
-            <span className="arrow">→</span>
-          </a>
-          <a href="#" className="column">
-            <img
-              src="/images/Involvement Fair/Involvement Fair 1.JPG"
-              alt="Event Report"
-            />
-            <div className="column-text">
-              <h3>{t('pastEventFair.labels.event')}</h3>
-              <h2>{t('pastEventFair.highlights')}</h2>
-            </div>
-            <span className="arrow">→</span>
-          </a>
-        </div>
-      </div>
+      </section>
     </>
   );
 }

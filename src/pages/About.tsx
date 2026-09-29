@@ -1,38 +1,51 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import Hero from '../components/Hero';
+import SectionHead from '../components/SectionHead';
+import { HERO_MEDIA } from '../data/media';
+import usePageTitle from '../hooks/usePageTitle';
 
 function About() {
   const { t } = useTranslation();
+  usePageTitle(t('about.title'));
+
   return (
     <>
-      <div className="video-container">
-        <video autoPlay muted loop playsInline>
-          <source src="/videos/About.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div className="content">
-        <h1>{t('about.title')}</h1>
-        <p>
-          The NYU Shanghai Robotics Club is dedicated to promoting interest in robotics through education,
-          competitions, and hands-on projects. Our mission is to foster creativity and technical skills through
-          rich educational resources and practical projects.
-        </p>
-        <h2>Our Teams</h2>
-        <div className="team-button">
-          <Link to="/vex-u-team">
-            <img src="/images/VEX U.png" alt="VEX U Team" />
-            <div className="team-text">VEX U Team</div>
-          </Link>
+      <Hero media={HERO_MEDIA.about} title={t('about.title')} lead={t('about.lead')} short />
+
+      <section className="section">
+        <div className="shell">
+          <div className="lede">
+            <p className="lede__statement">{t('about.missionTitle')}</p>
+            <div className="lede__body">
+              <p>{t('about.missionBody')}</p>
+            </div>
+          </div>
         </div>
-        <div className="team-button">
-          <Link to="/robomaster-team">
-            <img src="/images/Robomaster.png" alt="Robomaster Team" />
-            <div className="team-text">Robomaster Team</div>
-          </Link>
+      </section>
+
+      <section className="section">
+        <div className="shell">
+          <div className="lede">
+            <p className="lede__statement">{t('about.structureTitle')}</p>
+            <div className="lede__body">
+              <p>{t('about.structureBody')}</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section className="section band">
+        <div className="shell">
+          <SectionHead>{t('about.contactTitle')}</SectionHead>
+          <p className="section__note">{t('about.contactBody')}</p>
+          <p className="mt-6">
+            <a className="btn" href={`mailto:${t('footer.contactEmail')}`}>
+              {t('footer.contactEmail')}
+            </a>
+          </p>
+        </div>
+      </section>
     </>
   );
 }

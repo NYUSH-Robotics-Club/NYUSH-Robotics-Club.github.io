@@ -1,85 +1,102 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About Us",
-    "members": "Members",
+    "about": "About",
     "events": "Events",
-    "contact": "Contact Us"
+    "contact": "Contact",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
   },
   "footer": {
-    "wechat": "WeChat"
+    "wechat": "WeChat",
+    "followUs": "Follow us",
+    "rights": "NYU Shanghai Robotics Club. All rights reserved.",
+    "contactEmail": "shanghai.robotics@nyu.edu"
   },
   "home": {
-    "title": "Welcome to NYU Shanghai Robotics Club!",
-    "introLine1": "We are an open club passionate about innovation, robotics, and teamwork. Whether your strengths lie in technical areas—such as engineering, computer vision, and electronic control—or in non-technical roles like media, marketing, and logistics, we welcome all talents, from all years in college, to join us.",
-    "introLine2": "Our club actively participates in two major competitions:",
-    "introVexU": "VEX Robotics Competition (VEX U)",
-    "introRoboMaster": "RoboMaster Robotics Competition",
-    "introLine3": "We’re excited to meet you and see how you can contribute to our growing robotics community.",
-    "introContact": "If you have any further questions, feel free to email shanghai.robotics@nyu.edu",
-    "competition": "Competition",
-    "upcoming": "Upcoming Events",
-    "past": "Past Events",
-    "join": "Join Us",
-    "contact": "Contact Us"
+    "title": "NYU Shanghai Robotics Club",
+    "lead": "We design, build and drive our own robots, and take them to competition.",
+    "body1": "The club is open to every year and every major. Half of us are mechanical, electrical or software; the other half run media, marketing and logistics. Both halves are needed to get a robot to the field.",
+    "body2": "We compete in VEX U and in DJI's RoboMaster University League. Between competitions we run workshops and take on projects of our own.",
+    "recordTitle": "Awards",
+    "recordNote": "Every award the club has won. Newest first.",
+    "teamsTitle": "The squads",
+    "joinTitle": "Join the club",
+    "joinBody": "We recruit at the start of each semester. No experience required — just show up to a build session.",
+    "posterAlt": "NYU Shanghai Robotics Club recruitment poster",
+    "allEvents": "All events and results"
   },
   "about": {
-    "title": "About Us",
-    "content": "Information about the club."
-  },
-  "members": {
-    "title": "Members",
-    "content": "Meet our team."
+    "title": "About the club",
+    "lead": "A student-run robotics club at NYU Shanghai.",
+    "missionTitle": "What we do",
+    "missionBody": "We build competition robots. Students design the mechanics, wire the electronics and write the control software, then test it against other universities. Alongside the competition work we run workshops and talks that are open to the whole campus.",
+    "structureTitle": "How it runs",
+    "structureBody": "The club is run by a student board and split into working groups: programming, mechanical, software, research and development, marketing and media. Anyone can join any group — there is no application and no prerequisite.",
+    "contactTitle": "Getting in touch",
+    "contactBody": "For sponsorship, collaboration or anything else, email the club and a board member will get back to you."
   },
   "events": {
-    "title": "Events",
-    "content": "Upcoming events."
+    "title": "Events and results",
+    "lead": "Everything the club has competed in or hosted.",
+    "awards": "Awards",
+    "competitions": "Competitions",
+    "pastEvents": "Workshops and visits",
+    "readMore": "Read more",
+    "speaker": "Speaker",
+    "categoryAward": "Award",
+    "categoryCompetition": "Competition",
+    "categoryPast": "Club event"
   },
   "contact": {
-    "title": "Contact Us",
-    "content": "Reach out to us."
+    "title": "Contact",
+    "lead": "The fastest way to reach us is email. We usually reply within a couple of days.",
+    "emailLabel": "Email",
+    "socialLabel": "Social",
+    "addressLabel": "Campus",
+    "addressValue": "NYU Shanghai, 567 West Yangsi Road, Pudong, Shanghai"
   },
   "robomaster": {
-    "title": "Robomaster Team"
+    "title": "RoboMaster",
+    "teamLabel": "Team",
+    "teamName": "United Force (联合力量)",
+    "lead": "Our RoboMaster squad builds a full robot fleet for DJI's university league.",
+    "intro1": "RoboMaster is DJI's university robotics competition. Teams build a fleet of robots — infantry, hero, sentry, engineer — and fight 3v3 in an arena where engineering quality decides the match.",
+    "intro2": "United Force competes in the RoboMaster University League. In the 2026 season we fielded infantry, hero and sentry robots at the Jiangsu Station, held at the Jiangyin Gymnasium over three days in March.",
+    "resultsTitle": "2026 season",
+    "resultsNote": "Three awards from the Jiangsu Station of the RoboMaster 2026 University League.",
+    "photoTitle": "Team photo",
+    "photoPlaceholder": "Team photo coming soon",
+    "sourcesTitle": "Checked against the official RoboMaster announcements",
+    "sourceAwards": "RoboMaster 2026 University League — award list",
+    "sourceRobot": "RoboMaster 2026 University League — individual robot awards",
+    "sourceSignup": "RoboMaster 2026 University League — entry list"
   },
   "vexu": {
-    "title": "VEX U Team"
+    "title": "VEX U",
+    "lead": "Our VEX U squad designs, builds and drives 15-inch robots for the VEX Robotics Competition.",
+    "resultsTitle": "Competition record",
+    "resultsNote": "Every VEX U result since the 2024–25 season.",
+    "empty": "No results recorded yet."
   },
   "wechat": {
-    "title": "WeChat Code"
+    "title": "WeChat",
+    "lead": "Scan to follow the club's official account.",
+    "back": "Back to home"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "That page doesn't exist. It may have been moved or removed.",
+    "back": "Back to home"
   },
   "general": {
-    "underConstruction": "Under construction..."
-  },
-  "membersPage": {
-    "facultyMentor": "Faculty Mentor",
-    "visitingProfessor": "Visiting Associate Professor of Practice in Computer Science, NYU Shanghai",
-    "boardMemberProfile": "Board Member Profile",
-    "president": "President",
-    "vicePresident": "Vice President",
-    "competitionTeamLeader": "Competition Team Leader",
-    "directorProgramming": "Director of Programming Group",
-    "directorMechanical": "Director of Mechanical Group",
-    "directorSoftware": "Director of Software Development",
-    "directorResearch": "Director of Research and Development",
-    "directorMarketing": "Director of Marketing and Events",
-    "directorMedia": "Director of Media",
-    "vexUTeam": "VEX U Team",
-    "teamLeader": "Team Leader",
-    "educationTeam": "Education Team",
-    "marketingTeam": "Marketing and Events Team",
-    "marketingMember": "Marketing and Events Team Member",
-    "mediaTeam": "Media Team",
-    "mediaMember": "Media Team Member"
+    "loading": "Loading…"
   },
   "pastEventFair": {
-    "title": "INVOLVEMENT FAIR!",
-    "date": "September 24th, 2024",
-    "toBeUpdated": "To be Updated!",
-    "labels": {
-      "event": "Event",
-      "competition": "Competition"
-    },
-    "highlights": "Involvement Fair Highlights"
+    "title": "Involvement Fair",
+    "date": "September 12th, 2024",
+    "recapTitle": "Event recap",
+    "recapBody": "The club set up a booth at NYU Shanghai's Qiantan campus to introduce our teams, past projects and upcoming events to new students."
   }
 }

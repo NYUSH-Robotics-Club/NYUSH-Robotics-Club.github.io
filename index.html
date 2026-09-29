@@ -3,12 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0b0c0e" />
+
     <title>NYU Shanghai Robotics Club</title>
-    <link rel="icon" href="/public/favicon.ico" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <meta
+      name="description"
+      content="The NYU Shanghai Robotics Club — competing in VEX U and DJI RoboMaster, building robots and running workshops at NYU Shanghai."
+    />
+
+    <!-- 社交平台预览：og:image / og:url 必须是绝对地址，相对路径不会被抓取 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NYU Shanghai Robotics Club" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:url" content="https://www.nyushrobotics.club/" />
+    <meta property="og:title" content="NYU Shanghai Robotics Club" />
+    <meta
+      property="og:description"
+      content="Competing in VEX U and DJI RoboMaster, building robots and running workshops at NYU Shanghai."
+    />
+    <meta property="og:image" content="https://www.nyushrobotics.club/images/Group%20Photo.webp" />
+    <meta property="og:image:alt" content="The NYU Shanghai Robotics Club team" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="canonical" href="https://www.nyushrobotics.club/" />
+
+    <!-- 图标套件：多尺寸 ico 给浏览器标签页，png 给 iOS 主屏和 PWA -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- 标题字体：自托管，提前拉取，避免标题先以系统字体闪一下 -->
+    <link
+      rel="preload"
+      href="/fonts/archivo-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <style>
+      /* 首屏底色 */
+      html,
+      body {
+        margin: 0;
+        background: #0b0c0e;
+      }
+    </style>
+
+    <!-- 结构化数据：让搜索引擎把社团识别成一个组织，而不是一页散装文字 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "NYU Shanghai Robotics Club",
+        "alternateName": "上海纽约大学机器人俱乐部",
+        "url": "https://www.nyushrobotics.club/",
+        "logo": "https://www.nyushrobotics.club/icon-512.png",
+        "email": "shanghai.robotics@nyu.edu",
+        "parentOrganization": {
+          "@type": "CollegeOrUniversity",
+          "name": "NYU Shanghai",
+          "url": "https://shanghai.nyu.edu"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "567 West Yangsi Road",
+          "addressLocality": "Shanghai",
+          "addressRegion": "Pudong",
+          "addressCountry": "CN"
+        },
+        "sameAs": [
+          "https://www.instagram.com/nyush_robotics_club/",
+          "https://www.linkedin.com/company/robotics-club-at-nyu-shanghai"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div
+        style="
+          max-width: 34rem;
+          margin: 22vh auto 0;
+          padding: 0 1.5rem;
+          font: 16px/1.7 system-ui, sans-serif;
+          color: #b7b3c9;
+          text-align: center;
+        "
+      >
+        <p style="color: #f4f3fa; font-size: 1.25rem; font-weight: 700">
+          NYU Shanghai Robotics Club
+        </p>
+        <p>This site needs JavaScript to run. Please enable it and reload the page.</p>
+        <p>
+          Questions? Email
+          <a href="mailto:shanghai.robotics@nyu.edu" style="color: #a78bfa"
+            >shanghai.robotics@nyu.edu</a
+          >
+        </p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
