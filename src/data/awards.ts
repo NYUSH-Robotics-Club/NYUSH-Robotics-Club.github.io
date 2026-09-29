@@ -96,8 +96,8 @@ export const AWARDS: Award[] = [
       en: '29 teams from 17 universities including SJTU, XJTU, Tongji and HIT Shenzhen',
       zh: '上海交大、西安交大、同济、哈工大（深圳）等 17 所高校的 29 支队伍参赛',
     },
-    img: '/images/2024_VEX_Elite_Invitational _Competition/DSC06769.webp',
-    imgSmall: '/images/2024_VEX_Elite_Invitational _Competition/DSC06769-700.webp',
+    img: '/images/2024-vex-elite-invitational/dsc06769.webp',
+    imgSmall: '/images/2024-vex-elite-invitational/dsc06769-700.webp',
     imgW: 1400,
     imgH: 933,
     imgAlt: {

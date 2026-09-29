@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Award } from '../data/awards';
 import { pick, toLang } from '../data/text';
+import { imgUrl, srcSetFor } from '../data/asset';
 
 interface AwardRowProps {
   award: Award;
@@ -29,12 +30,8 @@ const AwardRow: React.FC<AwardRowProps> = ({ award }) => {
         {award.img && (
           <figure className="record__media">
             <img
-              src={award.img}
-              srcSet={
-                award.imgSmall && award.imgW
-                  ? `${award.imgSmall} 700w, ${award.img} ${award.imgW}w`
-                  : undefined
-              }
+              src={imgUrl(award.img)}
+              srcSet={srcSetFor(award.img!, award.imgSmall, award.imgW)}
               sizes="(max-width: 820px) 100vw, 620px"
               width={award.imgW}
               height={award.imgH}

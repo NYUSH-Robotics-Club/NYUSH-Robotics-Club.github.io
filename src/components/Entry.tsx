@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { ClubEvent } from '../data/events';
 import { pick, useLang } from '../data/text';
+import { imgUrl, srcSetFor } from '../data/asset';
 
 interface EntryProps {
   event: ClubEvent;
@@ -30,12 +31,8 @@ const Entry: React.FC<EntryProps> = ({ event, showCategory = true }) => {
       {event.img && (
         <div className="entry__media">
           <img
-            src={event.img}
-            srcSet={
-              event.imgSmall && event.imgW
-                ? `${event.imgSmall} 700w, ${event.img} ${event.imgW}w`
-                : undefined
-            }
+            src={imgUrl(event.img)}
+            srcSet={srcSetFor(event.img!, event.imgSmall, event.imgW)}
             sizes="(max-width: 820px) 100vw, 560px"
             width={event.imgW}
             height={event.imgH}

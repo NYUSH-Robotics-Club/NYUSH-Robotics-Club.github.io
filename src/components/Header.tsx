@@ -59,7 +59,7 @@ function Header() {
 
       <Link to="/" className="site-header__logo">
         <img
-          src="/images/NYUSH logo.webp"
+          src="/images/nyush-logo.webp"
           alt="NYU Shanghai"
           width={542}
           height={146}

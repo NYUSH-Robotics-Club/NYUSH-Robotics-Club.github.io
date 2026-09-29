@@ -9,7 +9,7 @@ import { awardsByTeam } from '../data/awards';
 import usePageTitle from '../hooks/usePageTitle';
 
 const TEAMS = [
-  { to: '/vex-u-team', img: '/images/VEX U.png', name: 'VEX U', blurbKey: 'vexu.lead' },
+  { to: '/vex-u-team', img: '/images/vex-u.png', name: 'VEX U', blurbKey: 'vexu.lead' },
   {
     to: '/robomaster-team',
     img: '/images/Robomaster.png',

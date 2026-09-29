@@ -84,8 +84,8 @@ export const EVENTS: ClubEvent[] = [
       en: 'Promising Award – SJTU VEX Elite Invitational Competition',
       zh: '潜力奖 —— 上海交通大学 VEX 精英邀请赛',
     },
-    img: '/images/2024_VEX_Elite_Invitational _Competition/DSC06769.webp',
-    imgSmall: '/images/2024_VEX_Elite_Invitational _Competition/DSC06769-700.webp',
+    img: '/images/2024-vex-elite-invitational/dsc06769.webp',
+    imgSmall: '/images/2024-vex-elite-invitational/dsc06769-700.webp',
     imgW: 1400,
     imgH: 933,
     imgAlt: {
@@ -266,8 +266,8 @@ export const EVENTS: ClubEvent[] = [
       en: 'Embodied Spatial Intelligence: Bridging Perception, Reasoning, and Action',
       zh: '具身空间智能：连接感知、推理与行动',
     },
-    img: '/images/20250418, Chen Feng, cover (1).webp',
-    imgSmall: '/images/20250418, Chen Feng, cover (1)-700.webp',
+    img: '/images/chen-feng-talk.webp',
+    imgSmall: '/images/chen-feng-talk-700.webp',
     imgW: 1131,
     imgH: 681,
     imgAlt: {
@@ -297,8 +297,8 @@ export const EVENTS: ClubEvent[] = [
     date: { en: 'Nov 15, 2024', zh: '2024年11月15日' },
     dateISO: '2024-11-15',
     title: { en: 'Field Trip: Robotics Club | Lenovo Future Center', zh: '参访：联想未来中心' },
-    img: '/images/Group Photo.webp',
-    imgSmall: '/images/Group Photo-700.webp',
+    img: '/images/group-photo.webp',
+    imgSmall: '/images/group-photo-700.webp',
     imgW: 1400,
     imgH: 933,
     imgAlt: {
@@ -319,8 +319,8 @@ export const EVENTS: ClubEvent[] = [
     date: { en: 'Sep 12, 2024', zh: '2024年9月12日' },
     dateISO: '2024-09-12',
     title: { en: '2024 Fall Involvement Fair', zh: '2024 秋季社团招新会' },
-    img: '/images/Involvement Fair/Involvement Fair 1.webp',
-    imgSmall: '/images/Involvement Fair/Involvement Fair 1-700.webp',
+    img: '/images/involvement-fair/involvement-fair-1.webp',
+    imgSmall: '/images/involvement-fair/involvement-fair-1-700.webp',
     imgW: 1400,
     imgH: 933,
     imgAlt: {

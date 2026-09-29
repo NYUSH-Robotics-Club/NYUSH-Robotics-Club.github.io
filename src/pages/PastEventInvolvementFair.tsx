@@ -6,11 +6,11 @@ import usePageTitle from '../hooks/usePageTitle';
 
 const GALLERY = [
   {
-    src: '/images/Involvement Fair/Involvement Fair 1.webp',
+    src: '/images/involvement-fair/involvement-fair-1.webp',
     alt: 'Robotics Club booth at the 2024 Fall Involvement Fair',
   },
   {
-    src: '/images/Involvement Fair/Cropped Involvement Fair.webp',
+    src: '/images/involvement-fair/cropped-involvement-fair.webp',
     alt: 'Students visiting the Robotics Club booth',
   },
 ];
@@ -24,7 +24,7 @@ function PastEventInvolvementFair() {
       <section className="hero hero--short" aria-label={t('pastEventFair.title')}>
         <img
           className="hero__poster"
-          src="/images/Involvement Fair/Cropped Involvement Fair.webp"
+          src="/images/involvement-fair/cropped-involvement-fair.webp"
           alt=""
           aria-hidden="true"
           decoding="async"

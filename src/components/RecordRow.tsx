@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import type { ClubEvent } from '../data/events';
 import { pick, toLang } from '../data/text';
+import { imgUrl, srcSetFor } from '../data/asset';
 
 interface RecordRowProps {
   event: ClubEvent;
@@ -31,12 +32,8 @@ const RecordRow: React.FC<RecordRowProps> = ({ event }) => {
         {event.img && (
           <figure className="record__media">
             <img
-              src={event.img}
-              srcSet={
-                event.imgSmall && event.imgW
-                  ? `${event.imgSmall} 700w, ${event.img} ${event.imgW}w`
-                  : undefined
-              }
+              src={imgUrl(event.img)}
+              srcSet={srcSetFor(event.img!, event.imgSmall, event.imgW)}
               sizes="(max-width: 820px) 100vw, 620px"
               width={event.imgW}
               height={event.imgH}
