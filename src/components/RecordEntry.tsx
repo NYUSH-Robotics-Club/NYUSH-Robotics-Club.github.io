@@ -21,7 +21,9 @@ const RecordEntry: React.FC<RecordEntryProps> = ({ event }) => {
   const lang = useLang();
   const hasAwards = Boolean(event.awards?.length);
 
-  const className = `record__row${hasAwards ? ' record__row--win' : ''}`;
+  const className = `record__row${hasAwards ? ' record__row--win' : ''}${
+    event.img ? ' record__row--media' : ''
+  }`;
 
   const body = (
     <>
@@ -67,22 +69,23 @@ const RecordEntry: React.FC<RecordEntryProps> = ({ event }) => {
         )}
 
         {event.to && <span className="record__more">{t('events.readMore')}</span>}
-
-        {event.img && (
-          <figure className="record__media">
-            <img
-              src={imgUrl(event.img)}
-              srcSet={srcSetFor(event.img, event.imgSmall, event.imgW)}
-              sizes="(max-width: 820px) 100vw, 620px"
-              width={event.imgW}
-              height={event.imgH}
-              alt={event.imgAlt ? pick(event.imgAlt, lang) : ''}
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-        )}
       </div>
+
+      {/* 照片是这一行的第三栏，宽屏时和正文并排，窄屏时落到正文下面 */}
+      {event.img && (
+        <figure className="record__media">
+          <img
+            src={imgUrl(event.img)}
+            srcSet={srcSetFor(event.img, event.imgSmall, event.imgW)}
+            sizes="(max-width: 1200px) calc(100vw - 160px), 420px"
+            width={event.imgW}
+            height={event.imgH}
+            alt={event.imgAlt ? pick(event.imgAlt, lang) : ''}
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      )}
     </>
   );
 

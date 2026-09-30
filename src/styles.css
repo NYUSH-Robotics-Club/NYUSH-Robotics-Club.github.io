@@ -491,13 +491,15 @@ main {
   padding: var(--sp-10) 0;
 }
 
-/* 区块标题：一行大字，不加横线也不加小标签 */
+/* 区块标题：一行大字，不加横线也不加小标签。
+   限宽加在标题上而不是容器上——容器一起限，下面那句说明也会被挤成
+   窄窄一条（"比赛与获奖"那段的说明曾经只有 26ch 宽）。 */
 .section__head {
   margin-bottom: var(--sp-8);
-  max-width: 26ch;
 }
 
 .section__head h2 {
+  max-width: 26ch;
   margin: 0;
 }
 
@@ -629,7 +631,9 @@ main {
   line-height: 1.65;
 }
 
+/* 窄屏：照片落在正文那一栏下面 */
 .record__media {
+  grid-column: 2;
   margin: var(--sp-6) 0 0;
   max-width: 620px;
 }
@@ -639,6 +643,22 @@ main {
   width: 100%;
   height: auto;
   border-radius: var(--r);
+}
+
+/* 宽屏：日期 | 正文 | 照片 三栏并排。
+   以前照片压在正文下面，每条记录将近 1000px 高，1200px 的版面只用掉左边
+   720px，右边空一大片——一屏放不下一条比赛，滚动很长。 */
+@media (min-width: 1200px) {
+  .record__row--media {
+    grid-template-columns: max-content minmax(0, 1fr) minmax(0, 420px);
+  }
+
+  .record__row--media .record__media {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 0;
+    max-width: none;
+  }
 }
 
 /* ------------------------------------------------------------ 战队图块 */
@@ -781,6 +801,22 @@ main {
 }
 
 /* ---------------------------------------------------------------- 海报 */
+
+/* 招新：海报 + 说明和邮箱。宽屏并排，窄屏堆起来 */
+.join {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: var(--sp-8) var(--sp-10);
+  align-items: start;
+}
+
+.join__body p {
+  margin: 0;
+  max-width: var(--measure);
+  color: var(--text-2);
+  font-size: 1rem;
+  line-height: 1.65;
+}
 
 .poster {
   margin: 0;
@@ -1130,6 +1166,11 @@ main {
     padding: var(--sp-7) 0;
   }
 
+  /* 只剩一栏了，照片跟着走，别再指定第 2 栏 */
+  .record__media {
+    grid-column: 1;
+  }
+
   .record__date {
     padding-top: 0;
     white-space: normal;
@@ -1141,6 +1182,10 @@ main {
   }
 
   .teams {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .join {
     grid-template-columns: minmax(0, 1fr);
   }
 

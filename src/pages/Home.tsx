@@ -27,18 +27,15 @@ function Home() {
 
   return (
     <>
-      <Hero
-        media={HERO_MEDIA.home}
-        title={t('home.title')}
-        lead={t('home.lead')}
-        cta={{ to: '/events', label: t('home.allEvents') }}
-      />
+      <Hero media={HERO_MEDIA.home} title={t('home.title')} lead={t('home.lead')} />
 
       <section className="section">
         <div className="shell">
           <div className="lede">
             <div className="lede__body">
               <p>{t('home.body1')}</p>
+            </div>
+            <div className="lede__body">
               <p>{t('home.body2')}</p>
             </div>
           </div>
@@ -77,32 +74,32 @@ function Home() {
               </Link>
             ))}
           </div>
-          <p className="mt-6">
-            <Link className="btn btn--ghost" to="/events">
-              {t('home.allEvents')}
-            </Link>
-          </p>
         </div>
       </section>
 
       <section className="section">
         <div className="shell">
-          <SectionHead note={t('home.joinBody')}>{t('home.joinTitle')}</SectionHead>
-          <figure className="poster">
-            <img
-              src="/images/robotics_club_poster.webp"
-              alt={t('home.posterAlt')}
-              width={1100}
-              height={1608}
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <p className="mt-7">
-            <a className="email-link" href={`mailto:${t('footer.contactEmail')}`}>
-              {t('footer.contactEmail')}
-            </a>
-          </p>
+          <SectionHead>{t('home.joinTitle')}</SectionHead>
+          {/* 海报和「怎么加入 + 邮箱」并排：海报是竖的，单放左边的话
+              宽屏右边会空掉一大片 */}
+          <div className="join">
+            <figure className="poster">
+              <img
+                src="/images/robotics_club_poster.webp"
+                alt={t('home.posterAlt')}
+                width={1100}
+                height={1608}
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div className="join__body">
+              <p>{t('home.joinBody')}</p>
+              <a className="email-link" href={`mailto:${t('footer.contactEmail')}`}>
+                {t('footer.contactEmail')}
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </>
