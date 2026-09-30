@@ -1048,11 +1048,6 @@ main {
 
 /* ------------------------------------------------------------ 间距工具 */
 
-.muted-text {
-  color: var(--text-3);
-  font-size: 0.95rem;
-}
-
 .mt-5 { margin-top: var(--sp-5); }
 .mt-6 { margin-top: var(--sp-6); }
 .mt-7 { margin-top: var(--sp-7); }

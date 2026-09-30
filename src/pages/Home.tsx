@@ -41,9 +41,6 @@ function Home() {
               <p>{t('home.body1')}</p>
               <p>{t('home.body2')}</p>
             </div>
-            <div className="lede__body">
-              <p className="muted-text">{t('home.introContact')}</p>
-            </div>
           </div>
         </div>
       </section>
