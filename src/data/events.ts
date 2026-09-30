@@ -73,6 +73,14 @@ export const EVENTS: ClubEvent[] = [
       en: 'RoboMaster University League 2026 – Jiangsu Station',
       zh: 'RoboMaster 2026 机甲大师高校联盟赛 · 江苏站',
     },
+    img: '/images/robomaster-team.webp',
+    imgSmall: '/images/robomaster-team-700.webp',
+    imgW: 1400,
+    imgH: 1050,
+    imgAlt: {
+      en: 'United Force with the club banner and their robots at the RoboMaster 2026 Jiangsu Station',
+      zh: 'RoboMaster 2026 江苏站，联合力量队员与社团旗帜和三台机器人合影',
+    },
     awards: [
       {
         prize: { en: 'Second Prize', zh: '二等奖' },
