@@ -27,7 +27,7 @@ function Home() {
 
   return (
     <>
-      <Hero media={HERO_MEDIA.home} title={t('home.title')} lead={t('home.lead')} />
+      <Hero media={HERO_MEDIA.home} title={t('home.title')} />
 
       <section className="section">
         <div className="shell">
