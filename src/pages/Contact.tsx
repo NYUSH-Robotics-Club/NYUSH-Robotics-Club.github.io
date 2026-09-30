@@ -19,7 +19,9 @@ function Contact() {
           <div className="contact-list">
             <div>
               <h3>{t('contact.emailLabel')}</h3>
-              <a href={`mailto:${email}`}>{email}</a>
+              <a className="contact-list__email" href={`mailto:${email}`}>
+                {email}
+              </a>
             </div>
 
             <div>

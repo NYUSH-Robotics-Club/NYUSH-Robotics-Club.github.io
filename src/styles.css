@@ -852,6 +852,46 @@ main {
   transform: none;
 }
 
+/* ---------------------------------------------------------------- 邮箱 */
+
+/* 邮箱不做成胶囊按钮。把地址本身放大当排版元素——
+   按钮是把注意力引到"操作"上，大号地址是把注意力引到"我们"身上，
+   在这个版面里后者更合适，也更克制。 */
+.email-link {
+  display: inline-block;
+  max-width: 100%;
+  margin-top: var(--sp-7);
+  padding-bottom: var(--sp-2);
+  color: var(--text);
+  font-size: clamp(1.25rem, 3vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.028em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  /* 文字色和标题一样，下划线就是"这是链接"的唯一提示，
+     所以不能太淡：.18 只有 1.67:1，这里用 .42（4.06:1） */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.42);
+  transition: color var(--t) var(--ease), border-color var(--t) var(--ease);
+}
+
+.email-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* 联系页的邮箱是主要内容，比其它条目大一档 */
+.contact-list__email {
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.contact-list__email:hover {
+  border-bottom-color: var(--accent);
+}
+
 /* ------------------------------------------------------------------ 页脚 */
 
 .site-footer {

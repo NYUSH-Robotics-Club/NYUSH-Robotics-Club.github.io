@@ -102,7 +102,7 @@ function Home() {
             />
           </figure>
           <p className="mt-7">
-            <a className="btn" href={`mailto:${t('footer.contactEmail')}`}>
+            <a className="email-link" href={`mailto:${t('footer.contactEmail')}`}>
               {t('footer.contactEmail')}
             </a>
           </p>

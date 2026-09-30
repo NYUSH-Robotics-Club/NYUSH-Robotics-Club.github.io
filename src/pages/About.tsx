@@ -40,7 +40,7 @@ function About() {
           <SectionHead>{t('about.contactTitle')}</SectionHead>
           <p className="section__note">{t('about.contactBody')}</p>
           <p className="mt-6">
-            <a className="btn" href={`mailto:${t('footer.contactEmail')}`}>
+            <a className="email-link" href={`mailto:${t('footer.contactEmail')}`}>
               {t('footer.contactEmail')}
             </a>
           </p>
