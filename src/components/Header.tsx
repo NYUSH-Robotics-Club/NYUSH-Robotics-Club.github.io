@@ -61,8 +61,8 @@ function Header() {
         <img
           src="/images/nyush-logo.webp"
           alt="NYU Shanghai"
-          width={542}
-          height={146}
+          width={448}
+          height={101}
           decoding="async"
         />
       </Link>

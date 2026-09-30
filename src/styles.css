@@ -270,11 +270,20 @@ time,
   flex: 0 0 auto;
 }
 
+/* 图形在素材里本来就不带白边了（原来 542x146 的画布有 76% 是透明的，
+   30px 的 img 里真正看到的只有 21px），所以这里写的高度就是看到的字高。 */
 .site-header__logo img {
   display: block;
-  height: 30px;
+  height: 22px;
   width: auto;
   transition: opacity var(--t) var(--ease);
+}
+
+/* 桌面上顶栏还有富余，logo 放大一档 */
+@media (min-width: 821px) {
+  .site-header__logo img {
+    height: 34px;
+  }
 }
 
 .site-header__logo:hover img {
