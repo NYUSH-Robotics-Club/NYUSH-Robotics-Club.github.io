@@ -9,10 +9,15 @@ import { eventsByTeam } from '../data/events';
 import usePageTitle from '../hooks/usePageTitle';
 
 /**
- * 合照尚未提供，先用占位框；把图片放到 public/images/robomaster-team.webp
- * 后把 PHOTO 改成该路径即可。
+ * RoboMaster 2026 江苏站的合照。两个尺寸对应 public/images/robomaster-team{,-700}.webp，
+ * 窄屏取 700w，桌面取满宽那张。
  */
-const PHOTO: string | null = null;
+const PHOTO = {
+  src: '/images/robomaster-team.webp',
+  srcSet: '/images/robomaster-team-700.webp 700w, /images/robomaster-team.webp 1400w',
+  width: 1400,
+  height: 1050,
+};
 
 function RobomasterTeam() {
   const { t } = useTranslation();
@@ -60,13 +65,18 @@ function RobomasterTeam() {
       <section className="section">
         <div className="shell">
           <SectionHead>{t('robomaster.photoTitle')}</SectionHead>
-          <div className="photo-slot">
-            {PHOTO ? (
-              <img src={PHOTO} alt={t('robomaster.photoTitle')} loading="lazy" decoding="async" />
-            ) : (
-              <p style={{ margin: 0 }}>{t('robomaster.photoPlaceholder')}</p>
-            )}
-          </div>
+          <figure className="team-photo">
+            <img
+              src={PHOTO.src}
+              srcSet={PHOTO.srcSet}
+              sizes="(max-width: 820px) 100vw, 1120px"
+              alt={t('robomaster.photoAlt')}
+              width={PHOTO.width}
+              height={PHOTO.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         </div>
       </section>
 

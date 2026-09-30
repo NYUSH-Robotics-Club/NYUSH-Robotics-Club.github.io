@@ -676,9 +676,11 @@ main {
   background: rgba(255, 255, 255, 0.06);
 }
 
+/* 两个战队标都是反白版（透明底、图形裁到边），尺寸按同一块方形画布出，
+   所以这里写死同一个盒子就是它们真实的固有尺寸，不会变形。 */
 .team-tile__logo img {
-  max-width: 36px;
-  max-height: 36px;
+  max-width: 40px;
+  max-height: 40px;
   width: auto;
   height: auto;
 }
@@ -714,21 +716,16 @@ main {
   font-size: 0.88rem;
 }
 
-.photo-slot {
-  display: grid;
-  place-items: center;
-  border: 1px dashed var(--line-2);
-  border-radius: var(--r);
-  padding: clamp(var(--sp-10), 10vw, var(--sp-12)) var(--sp-5);
-  color: var(--text-3);
-  font-size: 0.95rem;
-  text-align: center;
+/* 战队合照。不加描边、不加圆角投影：照片本身就是版面，框只会削弱它。 */
+.team-photo {
+  margin: 0;
 }
 
-.photo-slot img {
+.team-photo img {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: var(--r);
 }
 
 /* -------------------------------------------------------------- 来源 */

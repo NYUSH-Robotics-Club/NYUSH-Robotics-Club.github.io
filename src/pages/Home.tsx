@@ -69,8 +69,8 @@ function Home() {
                   <img
                     src={team.img}
                     alt=""
-                    width={225}
-                    height={225}
+                    width={160}
+                    height={160}
                     loading="lazy"
                     decoding="async"
                   />
