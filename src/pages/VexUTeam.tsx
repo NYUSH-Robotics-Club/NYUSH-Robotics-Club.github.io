@@ -2,16 +2,16 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Hero from '../components/Hero';
 import SectionHead from '../components/SectionHead';
-import RecordRow from '../components/RecordRow';
+import RecordEntry from '../components/RecordEntry';
 import { HERO_MEDIA } from '../data/media';
-import { byTeam } from '../data/events';
+import { eventsByTeam } from '../data/events';
 import usePageTitle from '../hooks/usePageTitle';
 
 function VexUTeam() {
   const { t } = useTranslation();
   usePageTitle(t('vexu.title'));
 
-  const results = byTeam('vexu');
+  const results = eventsByTeam('vexu');
 
   return (
     <>
@@ -23,7 +23,7 @@ function VexUTeam() {
           {results.length ? (
             <div className="record">
               {results.map((event) => (
-                <RecordRow key={event.id} event={event} />
+                <RecordEntry key={event.id} event={event} />
               ))}
             </div>
           ) : (

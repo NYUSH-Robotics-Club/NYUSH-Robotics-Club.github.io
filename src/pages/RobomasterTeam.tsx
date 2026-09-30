@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import SectionHead from '../components/SectionHead';
-import AwardRow from '../components/AwardRow';
+import RecordEntry from '../components/RecordEntry';
 import { HERO_MEDIA } from '../data/media';
-import { awardsByTeam } from '../data/awards';
+import { eventsByTeam } from '../data/events';
 import usePageTitle from '../hooks/usePageTitle';
 
 /**
@@ -18,8 +18,7 @@ function RobomasterTeam() {
   const { t } = useTranslation();
   usePageTitle(t('robomaster.title'));
 
-  // 奖项来自 data/awards.ts，和主页是同一份数据
-  const results = awardsByTeam('robomaster');
+  const results = eventsByTeam('robomaster');
 
   return (
     <>
@@ -51,8 +50,8 @@ function RobomasterTeam() {
             {t('robomaster.resultsTitle')}
           </SectionHead>
           <div className="record">
-            {results.map((award) => (
-              <AwardRow key={award.id} award={award} />
+            {results.map((event) => (
+              <RecordEntry key={event.id} event={event} />
             ))}
           </div>
         </div>

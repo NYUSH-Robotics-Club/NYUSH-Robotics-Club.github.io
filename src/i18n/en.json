@@ -19,8 +19,8 @@
     "lead": "We design, build and drive our own robots, and take them to competition.",
     "body1": "The club is open to every year and every major. Half of us are mechanical, electrical or software; the other half run media, marketing and logistics. Both halves are needed to get a robot to the field.",
     "body2": "We compete in VEX U and in DJI's RoboMaster University League. Between competitions we run workshops and take on projects of our own.",
-    "recordTitle": "Awards",
-    "recordNote": "Every award the club has won. Newest first.",
+    "recordTitle": "Competitions and awards",
+    "recordNote": "Every competition the club has entered, and what it brought back. Newest first.",
     "teamsTitle": "The squads",
     "joinTitle": "Join the club",
     "joinBody": "We recruit at the start of each semester. No experience required — just show up to a build session.",
@@ -41,13 +41,15 @@
     "title": "Events and results",
     "lead": "Everything the club has competed in or hosted.",
     "awards": "Awards",
-    "competitions": "Competitions",
+    "competitions": "Competitions and awards",
     "pastEvents": "Workshops and visits",
     "readMore": "Read more",
     "speaker": "Speaker",
     "categoryAward": "Award",
     "categoryCompetition": "Competition",
-    "categoryPast": "Club event"
+    "categoryPast": "Club event",
+    "competitionsNote": "Every competition the club has entered, with the awards it won. Newest first.",
+    "pastNote": "Workshops, lectures and field trips the club has run or attended."
   },
   "contact": {
     "title": "Contact",
@@ -65,7 +67,7 @@
     "intro1": "RoboMaster is DJI's university robotics competition. Teams build a fleet of robots — infantry, hero, sentry, engineer — and fight 3v3 in an arena where engineering quality decides the match.",
     "intro2": "United Force competes in the RoboMaster University League. In the 2026 season we fielded infantry, hero and sentry robots at the Jiangsu Station, held at the Jiangyin Gymnasium over three days in March.",
     "resultsTitle": "2026 season",
-    "resultsNote": "Three awards from the Jiangsu Station of the RoboMaster 2026 University League.",
+    "resultsNote": "The squad entered the Jiangsu Station of the RoboMaster 2026 University League and came back with three awards.",
     "photoTitle": "Team photo",
     "photoPlaceholder": "Team photo coming soon",
     "sourcesTitle": "Checked against the official RoboMaster announcements",
@@ -76,8 +78,8 @@
   "vexu": {
     "title": "VEX U",
     "lead": "Our VEX U squad designs, builds and drives 15-inch robots for the VEX Robotics Competition.",
-    "resultsTitle": "Competition record",
-    "resultsNote": "Every VEX U result since the 2024–25 season.",
+    "resultsTitle": "Competitions and awards",
+    "resultsNote": "Every VEX U competition the squad has entered since the 2024–25 season. Newest first.",
     "empty": "No results recorded yet."
   },
   "wechat": {

@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import SectionHead from '../components/SectionHead';
-import AwardRow from '../components/AwardRow';
+import RecordEntry from '../components/RecordEntry';
 import { HERO_MEDIA } from '../data/media';
-import { awardsByTeam } from '../data/awards';
+import { competitionEvents } from '../data/events';
 import usePageTitle from '../hooks/usePageTitle';
 
 const TEAMS = [
@@ -22,8 +22,8 @@ function Home() {
   const { t } = useTranslation();
   usePageTitle();
 
-  // 主页把拿过的奖一次列全，不做筛选
-  const awards = awardsByTeam();
+  // 比赛和奖项在同一条时间线上，新的在前
+  const record = competitionEvents();
 
   return (
     <>
@@ -52,8 +52,8 @@ function Home() {
         <div className="shell">
           <SectionHead note={t('home.recordNote')}>{t('home.recordTitle')}</SectionHead>
           <div className="record">
-            {awards.map((award) => (
-              <AwardRow key={award.id} award={award} />
+            {record.map((event) => (
+              <RecordEntry key={event.id} event={event} />
             ))}
           </div>
         </div>

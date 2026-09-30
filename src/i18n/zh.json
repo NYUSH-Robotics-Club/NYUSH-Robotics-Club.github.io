@@ -19,8 +19,8 @@
     "lead": "我们自己设计、制造并操控机器人，然后带它去打比赛。",
     "body1": "社团对所有年级、所有专业开放。一半人做机械、电子和软件，另一半做媒体、市场和后勤——两边都到位，机器人才能上场。",
     "body2": "我们参加 VEX U 和大疆 RoboMaster 机甲大师高校联盟赛。比赛之外，我们办工作坊，也做自己的项目。",
-    "recordTitle": "获奖记录",
-    "recordNote": "社团拿过的全部奖项，最新的排在最前。",
+    "recordTitle": "比赛与获奖",
+    "recordNote": "社团参加过的每一场比赛，以及拿回来的成绩。新的在前。",
     "teamsTitle": "两支战队",
     "joinTitle": "加入我们",
     "joinBody": "每学期初招新，不需要任何基础——直接来参加一次搭建就行。",
@@ -41,13 +41,15 @@
     "title": "活动与成绩",
     "lead": "社团参加过和主办过的全部内容。",
     "awards": "获奖",
-    "competitions": "参赛",
+    "competitions": "比赛与获奖",
     "pastEvents": "工作坊与参访",
     "readMore": "阅读更多",
     "speaker": "主讲人",
     "categoryAward": "获奖",
     "categoryCompetition": "参赛",
-    "categoryPast": "社团活动"
+    "categoryPast": "社团活动",
+    "competitionsNote": "社团参加过的每一场比赛，以及对应的奖项。新的在前。",
+    "pastNote": "社团办过或参加过的工作坊、讲座与参访。"
   },
   "contact": {
     "title": "联系我们",
@@ -65,7 +67,7 @@
     "intro1": "RoboMaster 是大疆主办的高校机器人竞赛。参赛队要造出一整套机器人——步兵、英雄、哨兵、工程——在 3V3 竞技场上对抗，工程实力决定胜负。",
     "intro2": "「联合力量」征战 RoboMaster 机甲大师高校联盟赛。2026 赛季，我们带着步兵、英雄与哨兵机器人参加了 3 月在江阴市体育馆举行的江苏站比赛。",
     "resultsTitle": "2026 赛季",
-    "resultsNote": "RoboMaster 2026 机甲大师高校联盟赛江苏站的三个奖项。",
+    "resultsNote": "战队参加 RoboMaster 2026 机甲大师高校联盟赛江苏站，带回三个奖项。",
     "photoTitle": "战队合照",
     "photoPlaceholder": "合照即将上线",
     "sourcesTitle": "已与 RoboMaster 官方公告核对",
@@ -76,8 +78,8 @@
   "vexu": {
     "title": "VEX U",
     "lead": "VEX U 战队自主设计、制造并操控 15 英寸机器人参加 VEX 机器人竞赛。",
-    "resultsTitle": "竞赛战绩",
-    "resultsNote": "2024–25 赛季至今 VEX U 的全部成绩。",
+    "resultsTitle": "比赛与获奖",
+    "resultsNote": "2024–25 赛季至今 VEX U 战队参加过的每一场比赛。新的在前。",
     "empty": "暂无记录。"
   },
   "wechat": {

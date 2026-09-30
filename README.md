@@ -97,8 +97,10 @@ the tightest pair in the palette.
   injects `<meta name="robots" content="noindex">` as a second line of defence.
 - URLs are canonical **with a trailing slash** (`/events/`); `/events` gets a 301
   from Pages. `public/sitemap.xml` must match.
-- Event images ship two sizes (`-700.webp` + full) wired through `srcSet` in
-  `Entry.tsx` / `RecordRow.tsx`. Regenerate the small variant for new photos.
+- Event images ship two sizes (`-700.webp` + full) wired through `srcSet` by
+  `RecordEntry.tsx` via `srcSetFor()` in `data/asset.ts`. Regenerate the small
+  variant for new photos, and keep filenames URL-safe — `srcSet` is comma
+  separated, so a comma in a filename silently truncates the URL.
 - The NYU Shanghai logo in `public/images/` is the **white** version. On the light
   header it is inverted with `filter: brightness(0)`.
 
@@ -143,13 +145,46 @@ ffmpeg -i public/videos/out.mp4 -frames:v 1 public/videos/out-poster.webp
 **keep both files in sync** — a missing translation does not error, it just shows
 English.
 
-## RoboMaster results
+## Content model
 
-The honours on `/robomaster-team` come from the official announcements:
+All club content lives in **`src/data/events.ts`** — bilingual, one entry per
+competition or club activity.
+
+**Awards belong to the competition they were won at**, not to a separate list:
+
+```ts
+{
+  id: 'rmul-2026-jiangsu',
+  team: 'robomaster',
+  kind: 'competition',
+  dateISO: '2026-03-27',        // also the sort key
+  title: { en: '…', zh: '…' },
+  awards: [                     // optional — omit when nothing was won
+    { prize: {…}, name: {…}, detail: {…}, top: true },
+  ],
+  body: [{ en: '…', zh: '…' }],
+}
+```
+
+Everything is rendered **newest first** by `dateISO`. Keep it that way: the home
+page, `/events`, `/vex-u-team` and `/robomaster-team` all read this one file
+through `competitionEvents()`, `clubEvents()` and `eventsByTeam()`, so a
+competition and its awards can never drift apart.
+
+`top: true` marks the best result of a season; that is the only thing the accent
+colour is used for on those pages.
+
+### RoboMaster results
+
+Checked against the official announcements:
 
 - [RMUL 2026 award list](https://www.robomaster.com/zh-CN/resource/pages/announcement/1913)
 - [RMUL 2026 individual robot awards](https://www.robomaster.com/zh-CN/resource/pages/announcement/1916)
 - [RMUL 2026 entry list](https://www.robomaster.com/zh-CN/resource/pages/announcement/1904)
+
+The Xi'an and SJTU VEX U results are placements, not awards (7th in Asia; a win
+against SMP2) — they are recorded in `body` and deliberately carry no `awards`
+entry. Don't add honours that cannot be traced to a source.
 
 ## License
 

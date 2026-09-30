@@ -1,16 +1,31 @@
 import type { LocalizedText } from './text';
 
 /**
- * 社团活动与赛事记录。中英双语。
+ * 社团的赛事与活动记录。中英双语。
  *
- * 之前 Home 和 Events 两个页面各自硬编码一份列表，改一处要改两处。
- * 现在统一在这里维护，页面只负责渲染。
+ * 关键设计：**奖项挂在比赛下面**，不单独成表。
+ * 一场比赛可以拿多个奖（RoboMaster 江苏站就拿了三个），
+ * 拆成两条数据会让「这场比赛打了什么、拿了什么」对不上。
+ * 页面按时间倒序渲染，新的在前。
  */
 
-export type EventCategory = 'award' | 'competition' | 'past';
-
-/** 归属：两支竞赛队，或社团层面的活动 */
+/** 这条记录属于哪支队伍，或社团层面 */
 export type EventTeam = 'vexu' | 'robomaster' | 'club';
+
+/** 赛事记录（打了比赛）还是社团活动（工作坊、讲座、参访） */
+export type EventKind = 'competition' | 'club';
+
+/** 一场比赛里拿到的某个奖 */
+export interface EventAward {
+  /** 名次：二等奖 / Promising Award … */
+  prize: LocalizedText;
+  /** 赛项：3V3 对抗赛 —— 步兵机器人 … */
+  name: LocalizedText;
+  /** 补充说明：组别、赛站、参赛规模 … */
+  detail?: LocalizedText;
+  /** 赛季最好成绩，页面上会用强调色点出来 */
+  top?: boolean;
+}
 
 export interface SpeakerInfo {
   name: string;
@@ -22,14 +37,15 @@ export interface SpeakerInfo {
 export interface ClubEvent {
   /** 稳定 id，用作 React key */
   id: string;
-  /** 这条记录属于谁 */
   team: EventTeam;
-  category: EventCategory;
+  kind: EventKind;
   /** 展示用的时间描述 */
   date: LocalizedText;
-  /** 机器可读的起始日期（ISO 8601），供 <time dateTime> 使用 */
+  /** 机器可读的起始日期（ISO 8601），同时用于排序 */
   dateISO: string;
   title: LocalizedText;
+  /** 这场比赛的奖项；没拿奖就省略 */
+  awards?: EventAward[];
   /** 卡片配图；暂无合适照片时留空 */
   img?: string;
   /**
@@ -37,11 +53,9 @@ export interface ClubEvent {
    * 卡片在桌面端只占几百像素，没有它浏览器会去下 1400px 那张。
    */
   imgSmall?: string;
-  /** 配图原始像素尺寸，用于 width/height 与 srcset */
   imgW?: number;
   imgH?: number;
   imgAlt?: LocalizedText;
-  /** 正文段落 */
   body: LocalizedText[];
   speaker?: SpeakerInfo;
   /** 卡片整体可点击时指向的内部路由 */
@@ -50,128 +64,44 @@ export interface ClubEvent {
 
 export const EVENTS: ClubEvent[] = [
   {
-    id: 'vex-asia-open-2025',
-    team: 'vexu',
-    category: 'award',
-    date: { en: 'Dec 29, 2024 – Jan 1, 2025', zh: '2024年12月29日 – 2025年1月1日' },
-    dateISO: '2024-12-29',
-    title: {
-      en: 'Second Prize – VEX Asia Open Signature Event',
-      zh: '二等奖 —— VEX 机器人亚洲公开赛国际签名赛',
-    },
-    img: '/images/2024_VEX_Asia_Open_Signaure_Event/DSC07467.webp',
-    imgSmall: '/images/2024_VEX_Asia_Open_Signaure_Event/DSC07467-700.webp',
-    imgW: 1400,
-    imgH: 933,
-    imgAlt: {
-      en: 'The club at the VEX Asia Open Signature Event',
-      zh: '社团在 VEX 机器人亚洲公开赛国际签名赛现场',
-    },
-    body: [
-      {
-        en: 'From December 29th to January 1st, the NYU Shanghai Robotics Club earned an impressive second prize at the VEX Asia Open Signature Event. The competition welcomed over 500 elite teams from China, Macao, Hong Kong, the United States, Singapore, and the UAE. Both NYU Shanghai teams advanced through the group stages, demonstrating exceptional skill and perseverance.',
-        zh: '2024 年 12 月 29 日至 2025 年 1 月 1 日，上海纽约大学机器人俱乐部在 VEX 机器人亚洲公开赛国际签名赛上获得二等奖。赛事汇聚了来自中国、澳门、香港、美国、新加坡和阿联酋的 500 余支队伍。上纽大的两支队伍均从小组赛出线，展现出扎实的技术和顽强的作风。',
-      },
-    ],
-  },
-  {
-    id: 'sjtu-vex-elite-invitational-2024',
-    team: 'vexu',
-    category: 'award',
-    date: { en: 'Dec 22, 2024', zh: '2024年12月22日' },
-    dateISO: '2024-12-22',
-    title: {
-      en: 'Promising Award – SJTU VEX Elite Invitational Competition',
-      zh: '潜力奖 —— 上海交通大学 VEX 精英邀请赛',
-    },
-    img: '/images/2024-vex-elite-invitational/dsc06769.webp',
-    imgSmall: '/images/2024-vex-elite-invitational/dsc06769-700.webp',
-    imgW: 1400,
-    imgH: 933,
-    imgAlt: {
-      en: 'The club receiving the Promising Award at SJTU',
-      zh: '社团在上海交大领取潜力奖',
-    },
-    body: [
-      {
-        en: 'On December 22, 2024, the NYU Shanghai Robotics Club received the Promising Award at the SJTU VEX Elite Invitational Competition. The event featured 29 teams from 17 top universities including SJTU, Xi’an Jiaotong University, Tongji University, and HIT Shenzhen. This recognition highlights the club’s dedication to innovation and collaboration in competitive robotics.',
-        zh: '2024 年 12 月 22 日，上海纽约大学机器人俱乐部在上海交通大学 VEX 精英邀请赛上获得潜力奖。赛事共有来自上海交大、西安交通大学、同济大学、哈工大（深圳）等 17 所高校的 29 支队伍参加。这个奖项是对社团在竞赛机器人上持续投入与协作的肯定。',
-      },
-    ],
-  },
-  {
     id: 'rmul-2026-jiangsu',
     team: 'robomaster',
-    category: 'award',
+    kind: 'competition',
     date: { en: 'Mar 27–29, 2026', zh: '2026年3月27–29日' },
     dateISO: '2026-03-27',
     title: {
       en: 'RoboMaster University League 2026 – Jiangsu Station',
       zh: 'RoboMaster 2026 机甲大师高校联盟赛 · 江苏站',
     },
-    body: [
+    awards: [
       {
-        en: 'The 25th National University Robot Competition — RoboMaster 2026 University League (Jiangsu Station) was held at the Jiangyin Gymnasium from March 27 to 29, 2026, bringing together nearly 40 university teams from across the country.',
-        zh: '第二十五届全国大学生机器人大赛 RoboMaster 2026 机甲大师高校联盟赛（江苏站）于 2026 年 3 月 27 日至 29 日在江阴市体育馆举行，共有来自全国近 40 所高校的队伍参赛。',
+        prize: { en: 'Second Prize', zh: '二等奖' },
+        name: { en: '3v3 Combat — Infantry Robot', zh: '3V3 对抗赛 —— 步兵机器人' },
+        detail: { en: 'Individual robot award, non-A-tier division', zh: '机器人竞技奖，非甲级组' },
+        top: true,
       },
       {
-        en: 'Our team, United Force (联合力量), competed in the non-A-tier division and took home a Third Prize in the 3v3 Combat and a Third Prize in the Infantry Combat. In the individual robot awards, our infantry robot earned a Second Prize in the 3v3 Combat – Infantry Robot category.',
-        zh: '我们的「联合力量」战队参加非甲级组比赛，获得 3V3 对抗赛三等奖和步兵对抗赛三等奖；在机器人竞技奖评选中，步兵机器人拿下 3V3 对抗赛·步兵机器人二等奖。',
+        prize: { en: 'Third Prize', zh: '三等奖' },
+        name: { en: '3v3 Combat', zh: '3V3 对抗赛' },
+        detail: { en: 'Match placement, non-A-tier division', zh: '比赛名次，非甲级组' },
       },
-    ],
-  },
-  {
-    id: 'vex-u-beijing-2025',
-    team: 'vexu',
-    category: 'competition',
-    date: { en: 'Dec 18–21, 2025', zh: '2025年12月18–21日' },
-    dateISO: '2025-12-18',
-    title: { en: 'VEX U Competition – Beijing', zh: 'VEX U 北京站比赛' },
-    img: '/images/events/2025-2026/vex-u-beijing.webp',
-    imgSmall: '/images/events/2025-2026/vex-u-beijing-700.webp',
-    imgW: 1400,
-    imgH: 997,
-    imgAlt: { en: 'VEX U competition in Beijing', zh: 'VEX U 北京站比赛现场' },
-    body: [
       {
-        en: 'From December 18 to 21, 2025, our team participated in the VEX U competition in Beijing. While we did not secure a podium finish, the event offered invaluable opportunities to evaluate and refine our robot’s design and performance. Competing against highly skilled teams allowed us to systematically identify areas for improvement in both hardware and control systems. We subsequently implemented targeted optimizations, resulting in marked enhancements in the robot’s reliability and overall functionality.',
-        zh: '2025 年 12 月 18 日至 21 日，我们参加了在北京举行的 VEX U 比赛。虽然没能站上领奖台，但这次比赛给了我们难得的检验机会。与强队交手让我们系统地发现了硬件和控制系统上的短板，赛后我们针对性地做了优化，机器人的稳定性和整体表现都有明显提升。',
+        prize: { en: 'Third Prize', zh: '三等奖' },
+        name: { en: 'Infantry Combat', zh: '步兵对抗赛' },
+        detail: { en: 'Match placement', zh: '比赛名次' },
       },
     ],
-  },
-  {
-    id: 'vex-asian-open-xian-2026',
-    team: 'vexu',
-    category: 'competition',
-    date: { en: 'Jan 1–3, 2026', zh: '2026年1月1–3日' },
-    dateISO: '2026-01-01',
-    title: {
-      en: 'VEX Robotics Asian Open Grand Finals – Xi’an',
-      zh: 'VEX 机器人亚洲公开赛总决赛 · 西安',
-    },
-    img: '/images/events/2025-2026/vex-asian-open-xian.webp',
-    imgSmall: '/images/events/2025-2026/vex-asian-open-xian-700.webp',
-    imgW: 1400,
-    imgH: 1050,
-    imgAlt: {
-      en: 'VEX Robotics Asian Open Grand Finals in Xi’an',
-      zh: '西安 VEX 机器人亚洲公开赛总决赛现场',
-    },
     body: [
       {
-        en: 'From January 1 to 3, 2026, the 2025-2026 VEX Robotics Asian Open Grand Finals was held in Xi’an. The NYU Shanghai Robotics Club competed in the VEX U division and ranked 7th in the Asian region. After months of preparation on hardware optimization, software development, and strategy refinement, the team performed strongly in the group stage with key wins against CZTU and HITSZ7, advancing to the elimination rounds.',
-        zh: '2026 年 1 月 1 日至 3 日，2025-2026 赛季 VEX 机器人亚洲公开赛总决赛在西安举行。上海纽约大学机器人俱乐部参加 VEX U 组别，最终位列亚洲区第 7。经过数月在硬件优化、软件开发与战术打磨上的准备，队伍在小组赛阶段表现强势，先后战胜 CZTU 和 HITSZ7，晋级淘汰赛。',
-      },
-      {
-        en: 'In the knockout stage, the team faced the experienced U.S. team BAD and delivered a stable and coordinated performance. Overall, the competition demonstrated significant progress in execution consistency, match pacing, and adaptability, providing valuable validation of the team’s engineering design and collaboration.',
-        zh: '淘汰赛阶段，队伍遭遇经验丰富的美国战队 BAD，打出了稳定而默契的一场。整体来看，这次比赛在操作稳定性、比赛节奏把控和临场应变上都有明显进步，也验证了队伍在工程设计与协作上的积累。',
+        en: 'The 25th National University Robot Competition — RoboMaster 2026 University League (Jiangsu Station) was held at the Jiangyin Gymnasium from March 27 to 29, 2026, bringing together nearly 40 university teams from across the country. Our team, United Force (联合力量), fielded infantry, hero and sentry robots.',
+        zh: '第二十五届全国大学生机器人大赛 RoboMaster 2026 机甲大师高校联盟赛（江苏站）于 2026 年 3 月 27 日至 29 日在江阴市体育馆举行，共有来自全国近 40 所高校的队伍参赛。我们的「联合力量」战队带着步兵、英雄和哨兵机器人出战。',
       },
     ],
   },
   {
     id: 'sjtu-vex-u-2026',
     team: 'vexu',
-    category: 'competition',
+    kind: 'competition',
     date: { en: 'Jan 24–25, 2026', zh: '2026年1月24–25日' },
     dateISO: '2026-01-24',
     title: { en: 'VEX U Competition – SJTU', zh: 'VEX U 上海交大站比赛' },
@@ -191,53 +121,119 @@ export const EVENTS: ClubEvent[] = [
     ],
   },
   {
-    id: 'usst-friendly-match-2025',
-    team: 'club',
-    category: 'past',
-    date: { en: 'Oct 15, 2025', zh: '2025年10月15日' },
-    dateISO: '2025-10-15',
-    title: { en: 'USST Friendly Match', zh: '上海理工大学友谊赛' },
-    img: '/images/events/2025-2026/usst-friendly-match.webp',
-    imgSmall: '/images/events/2025-2026/usst-friendly-match-700.webp',
+    id: 'vex-asian-open-xian-2026',
+    team: 'vexu',
+    kind: 'competition',
+    date: { en: 'Jan 1–3, 2026', zh: '2026年1月1–3日' },
+    dateISO: '2026-01-01',
+    title: {
+      en: 'VEX Robotics Asian Open Grand Finals – Xi’an',
+      zh: 'VEX 机器人亚洲公开赛总决赛 · 西安',
+    },
+    img: '/images/events/2025-2026/vex-asian-open-xian.webp',
+    imgSmall: '/images/events/2025-2026/vex-asian-open-xian-700.webp',
     imgW: 1400,
     imgH: 1050,
     imgAlt: {
-      en: 'Friendly robotics match with the USST Robotics Club',
-      zh: '与上海理工大学机器人社的友谊赛',
+      en: 'VEX Robotics Asian Open Grand Finals in Xi’an',
+      zh: '西安 VEX 机器人亚洲公开赛总决赛现场',
     },
     body: [
       {
-        en: 'On Oct 15, 2025, our robotics club hosted a friendly robotics competition with the University of Shanghai for Science and Technology (USST) Robotics Club to promote academic exchange and collaboration. The event included team-based competitions and a mini-lecture by the USST club president on programming and algorithm design. Members from both universities exchanged ideas and strengthened connections, laying the foundation for future joint projects and collaborations.',
-        zh: '2025 年 10 月 15 日，我们与上海理工大学机器人社联合举办了一场友谊赛，推动两校之间的交流与合作。活动包括分组对抗，以及由上理工社长带来的编程与算法设计小型讲座。两校成员交流了想法，也加深了联系，为今后的联合项目打好了基础。',
+        en: 'From January 1 to 3, 2026, the 2025-2026 VEX Robotics Asian Open Grand Finals was held in Xi’an, bringing together nearly 700 teams. The NYU Shanghai Robotics Club competed in the VEX U division and ranked 7th in the Asian region. After months of preparation on hardware optimization, software development, and strategy refinement, the team performed strongly in the group stage with key wins against CZTU and HITSZ7, advancing to the elimination rounds, where they faced the experienced U.S. team BAD.',
+        zh: '2026 年 1 月 1 日至 3 日，2025-2026 赛季 VEX 机器人亚洲公开赛总决赛在西安举行，近 700 支队伍参赛。上海纽约大学机器人俱乐部参加 VEX U 组别，最终位列亚洲区第 7。经过数月在硬件优化、软件开发与战术打磨上的准备，队伍在小组赛阶段表现强势，先后战胜 CZTU 和 HITSZ7 晋级淘汰赛，并在淘汰赛对阵经验丰富的美国战队 BAD。',
       },
     ],
   },
   {
-    id: '3d-printing-workshop-2025',
-    team: 'club',
-    category: 'past',
-    date: { en: 'Nov 6, 2025', zh: '2025年11月6日' },
-    dateISO: '2025-11-06',
-    title: { en: '3D Printing Workshop', zh: '3D 打印工作坊' },
-    img: '/images/events/2025-2026/3d-printing-workshop.webp',
-    imgSmall: '/images/events/2025-2026/3d-printing-workshop-700.webp',
+    id: 'vex-u-beijing-2025',
+    team: 'vexu',
+    kind: 'competition',
+    date: { en: 'Dec 18–21, 2025', zh: '2025年12月18–21日' },
+    dateISO: '2025-12-18',
+    title: { en: 'VEX U Competition – Beijing', zh: 'VEX U 北京站比赛' },
+    img: '/images/events/2025-2026/vex-u-beijing.webp',
+    imgSmall: '/images/events/2025-2026/vex-u-beijing-700.webp',
     imgW: 1400,
-    imgH: 837,
+    imgH: 997,
+    imgAlt: { en: 'VEX U competition in Beijing', zh: 'VEX U 北京站比赛现场' },
+    body: [
+      {
+        en: 'From December 18 to 21, 2025, our team participated in the VEX U competition in Beijing. While we did not secure a podium finish, the event offered invaluable opportunities to evaluate and refine our robot’s design and performance. Competing against highly skilled teams allowed us to systematically identify areas for improvement in both hardware and control systems. We subsequently implemented targeted optimizations, resulting in marked enhancements in the robot’s reliability and overall functionality.',
+        zh: '2025 年 12 月 18 日至 21 日，我们参加了在北京举行的 VEX U 比赛。虽然没能站上领奖台，但这次比赛给了我们难得的检验机会。与强队交手让我们系统地发现了硬件和控制系统上的短板，赛后我们针对性地做了优化，机器人的稳定性和整体表现都有明显提升。',
+      },
+    ],
+  },
+  {
+    id: 'vex-asia-open-2025',
+    team: 'vexu',
+    kind: 'competition',
+    date: { en: 'Dec 29, 2024 – Jan 1, 2025', zh: '2024年12月29日 – 2025年1月1日' },
+    dateISO: '2024-12-29',
+    title: { en: 'VEX Asia Open Signature Event', zh: 'VEX 机器人亚洲公开赛国际签名赛' },
+    awards: [
+      {
+        prize: { en: 'Second Prize', zh: '二等奖' },
+        name: { en: 'VEX U division', zh: 'VEX U 组别' },
+        detail: {
+          en: 'Over 500 teams from China, Macao, Hong Kong, the US, Singapore and the UAE',
+          zh: '来自中国、澳门、香港、美国、新加坡和阿联酋的 500 余支队伍参赛',
+        },
+        top: true,
+      },
+    ],
+    img: '/images/2024_VEX_Asia_Open_Signaure_Event/DSC07467.webp',
+    imgSmall: '/images/2024_VEX_Asia_Open_Signaure_Event/DSC07467-700.webp',
+    imgW: 1400,
+    imgH: 933,
     imgAlt: {
-      en: 'Children designing their own creations at the 3D printing workshop',
-      zh: '孩子们在 3D 打印工作坊里设计自己的作品',
+      en: 'The club at the VEX Asia Open Signature Event',
+      zh: '社团在 VEX 机器人亚洲公开赛国际签名赛现场',
     },
     body: [
       {
-        en: 'On Nov 6, 2025, our robotics team hosted an engaging 3D Printing Workshop that brought innovation to life. Over 20 curious and enthusiastic children joined us to explore the fascinating world of 3D printing. After learning the fundamentals, they turned theory into practice by designing their very own creations. It was an inspiring experience that united young minds passionate about technology, creativity, and the future of engineering.',
-        zh: '2025 年 11 月 6 日，我们办了一场 3D 打印工作坊。20 多个孩子来一起认识 3D 打印：先了解基本原理，再动手把自己的想法做成模型。看着一群对技术、创造和工程感兴趣的小朋友凑在一起，是件挺有意义的事。',
+        en: 'From December 29th to January 1st, the NYU Shanghai Robotics Club earned an impressive second prize at the VEX Asia Open Signature Event. The competition welcomed over 500 elite teams from China, Macao, Hong Kong, the United States, Singapore, and the UAE. Both NYU Shanghai teams advanced through the group stages, demonstrating exceptional skill and perseverance.',
+        zh: '2024 年 12 月 29 日至 2025 年 1 月 1 日，上海纽约大学机器人俱乐部在 VEX 机器人亚洲公开赛国际签名赛上获得二等奖。赛事汇聚了来自中国、澳门、香港、美国、新加坡和阿联酋的 500 余支队伍。上纽大的两支队伍均从小组赛出线，展现出扎实的技术和顽强的作风。',
+      },
+    ],
+  },
+  {
+    id: 'sjtu-vex-elite-invitational-2024',
+    team: 'vexu',
+    kind: 'competition',
+    date: { en: 'Dec 22, 2024', zh: '2024年12月22日' },
+    dateISO: '2024-12-22',
+    title: { en: 'SJTU VEX Elite Invitational Competition', zh: '上海交通大学 VEX 精英邀请赛' },
+    awards: [
+      {
+        prize: { en: 'Promising Award', zh: '潜力奖' },
+        name: { en: 'VEX U division', zh: 'VEX U 组别' },
+        detail: {
+          en: '29 teams from 17 universities including SJTU, XJTU, Tongji and HIT Shenzhen',
+          zh: '上海交大、西安交大、同济、哈工大（深圳）等 17 所高校的 29 支队伍参赛',
+        },
+        top: true,
+      },
+    ],
+    img: '/images/2024-vex-elite-invitational/dsc06769.webp',
+    imgSmall: '/images/2024-vex-elite-invitational/dsc06769-700.webp',
+    imgW: 1400,
+    imgH: 933,
+    imgAlt: {
+      en: 'The club receiving the Promising Award at SJTU',
+      zh: '社团在上海交大领取潜力奖',
+    },
+    body: [
+      {
+        en: 'On December 22, 2024, the NYU Shanghai Robotics Club received the Promising Award at the SJTU VEX Elite Invitational Competition. The event featured 29 teams from 17 top universities including SJTU, Xi’an Jiaotong University, Tongji University, and HIT Shenzhen. This recognition highlights the club’s dedication to innovation and collaboration in competitive robotics.',
+        zh: '2024 年 12 月 22 日，上海纽约大学机器人俱乐部在上海交通大学 VEX 精英邀请赛上获得潜力奖。赛事共有来自上海交大、西安交通大学、同济大学、哈工大（深圳）等 17 所高校的 29 支队伍参加。这个奖项是对社团在竞赛机器人上持续投入与协作的肯定。',
       },
     ],
   },
   {
     id: 'sjtu-prof-lecture-2025',
     team: 'club',
-    category: 'past',
+    kind: 'club',
     date: { en: 'Dec 8, 2025', zh: '2025年12月8日' },
     dateISO: '2025-12-08',
     title: { en: 'SJTU Professor Lecture', zh: '上海交大教授讲座' },
@@ -257,9 +253,53 @@ export const EVENTS: ClubEvent[] = [
     ],
   },
   {
+    id: '3d-printing-workshop-2025',
+    team: 'club',
+    kind: 'club',
+    date: { en: 'Nov 6, 2025', zh: '2025年11月6日' },
+    dateISO: '2025-11-06',
+    title: { en: '3D Printing Workshop', zh: '3D 打印工作坊' },
+    img: '/images/events/2025-2026/3d-printing-workshop.webp',
+    imgSmall: '/images/events/2025-2026/3d-printing-workshop-700.webp',
+    imgW: 1400,
+    imgH: 837,
+    imgAlt: {
+      en: 'Children designing their own creations at the 3D printing workshop',
+      zh: '孩子们在 3D 打印工作坊里设计自己的作品',
+    },
+    body: [
+      {
+        en: 'On Nov 6, 2025, our robotics team hosted an engaging 3D Printing Workshop that brought innovation to life. Over 20 curious and enthusiastic children joined us to explore the fascinating world of 3D printing. After learning the fundamentals, they turned theory into practice by designing their very own creations. It was an inspiring experience that united young minds passionate about technology, creativity, and the future of engineering.',
+        zh: '2025 年 11 月 6 日，我们办了一场 3D 打印工作坊。20 多个孩子来一起认识 3D 打印：先了解基本原理，再动手把自己的想法做成模型。看着一群对技术、创造和工程感兴趣的小朋友凑在一起，是件挺有意义的事。',
+      },
+    ],
+  },
+  {
+    id: 'usst-friendly-match-2025',
+    team: 'club',
+    kind: 'club',
+    date: { en: 'Oct 15, 2025', zh: '2025年10月15日' },
+    dateISO: '2025-10-15',
+    title: { en: 'USST Friendly Match', zh: '上海理工大学友谊赛' },
+    img: '/images/events/2025-2026/usst-friendly-match.webp',
+    imgSmall: '/images/events/2025-2026/usst-friendly-match-700.webp',
+    imgW: 1400,
+    imgH: 1050,
+    imgAlt: {
+      en: 'Friendly robotics match with the USST Robotics Club',
+      zh: '与上海理工大学机器人社的友谊赛',
+    },
+    body: [
+      {
+        en: 'On Oct 15, 2025, our robotics club hosted a friendly robotics competition with the University of Shanghai for Science and Technology (USST) Robotics Club to promote academic exchange and collaboration. The event included team-based competitions and a mini-lecture by the USST club president on programming and algorithm design. Members from both universities exchanged ideas and strengthened connections, laying the foundation for future joint projects and collaborations.',
+        zh: '2025 年 10 月 15 日，我们与上海理工大学机器人社联合举办了一场友谊赛，推动两校之间的交流与合作。活动包括分组对抗，以及由上理工社长带来的编程与算法设计小型讲座。两校成员交流了想法，也加深了联系，为今后的联合项目打好了基础。',
+      },
+    ],
+  },
+  {
     id: 'embodied-spatial-intelligence-talk',
     team: 'club',
-    category: 'past',
+    kind: 'club',
     date: { en: 'Apr 18, 2025', zh: '2025年4月18日' },
     dateISO: '2025-04-18',
     title: {
@@ -293,7 +333,7 @@ export const EVENTS: ClubEvent[] = [
   {
     id: 'lenovo-field-trip-2024',
     team: 'club',
-    category: 'past',
+    kind: 'club',
     date: { en: 'Nov 15, 2024', zh: '2024年11月15日' },
     dateISO: '2024-11-15',
     title: { en: 'Field Trip: Robotics Club | Lenovo Future Center', zh: '参访：联想未来中心' },
@@ -315,7 +355,7 @@ export const EVENTS: ClubEvent[] = [
   {
     id: 'involvement-fair-2024',
     team: 'club',
-    category: 'past',
+    kind: 'club',
     date: { en: 'Sep 12, 2024', zh: '2024年9月12日' },
     dateISO: '2024-09-12',
     title: { en: '2024 Fall Involvement Fair', zh: '2024 秋季社团招新会' },
@@ -337,8 +377,21 @@ export const EVENTS: ClubEvent[] = [
   },
 ];
 
-export const byCategory = (category: EventCategory) =>
-  EVENTS.filter((event) => event.category === category);
+/**
+ * 全部记录，时间倒序——新的在前，旧的在后。
+ * 奖项挂在对应比赛上，所以这一份列表同时就是「参加过哪些比赛」和「拿过哪些奖」。
+ */
+export const eventsNewestFirst = (): ClubEvent[] =>
+  EVENTS.slice().sort((a, b) => b.dateISO.localeCompare(a.dateISO));
 
-/** 某个队的全部记录（VEX U 页用） */
-export const byTeam = (team: EventTeam) => EVENTS.filter((event) => event.team === team);
+/** 赛事记录（打过比赛的那些），时间倒序 */
+export const competitionEvents = (): ClubEvent[] =>
+  eventsNewestFirst().filter((event) => event.kind === 'competition');
+
+/** 社团活动（工作坊、讲座、参访），时间倒序 */
+export const clubEvents = (): ClubEvent[] =>
+  eventsNewestFirst().filter((event) => event.kind === 'club');
+
+/** 某支队的全部赛事记录，时间倒序 */
+export const eventsByTeam = (team: EventTeam): ClubEvent[] =>
+  eventsNewestFirst().filter((event) => event.team === team);
